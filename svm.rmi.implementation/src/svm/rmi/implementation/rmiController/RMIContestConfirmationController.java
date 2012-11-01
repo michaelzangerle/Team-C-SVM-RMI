@@ -1,5 +1,6 @@
 package svm.rmi.implementation.rmiController;
 
+import svm.logic.abstraction.controller.IContestConfirmationController;
 import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
 
 import java.rmi.RemoteException;
@@ -11,7 +12,10 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class RMIContestConfirmationController extends UnicastRemoteObject implements IRMIContestConfirmationController {
 
-    protected RMIContestConfirmationController() throws RemoteException {
+    IContestConfirmationController confirmationController;
+
+    public RMIContestConfirmationController(IContestConfirmationController contestConfirmationController) throws RemoteException {
         super();
+        this.confirmationController=contestConfirmationController;
     }
 }
