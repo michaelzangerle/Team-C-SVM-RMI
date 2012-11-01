@@ -18,12 +18,13 @@ public class RMIServer {
             //Setzen der Codebase     und der Policy
             System.setProperty("java.rmi.server.codebase", RMIServer.class
                     .getProtectionDomain().getCodeSource().getLocation().toString());
-
+             String help=RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
             //Hole Argument (IP)
             //String ip = args[0];
              String ip="10.0.0.2";
             //Erzeugen eines SayHello Objektes
             IRMIControllerFactory factory= RMIControllerFactory.getInstance();
+
 
 
             //Binden des Objekts

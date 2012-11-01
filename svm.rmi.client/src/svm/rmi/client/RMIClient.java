@@ -13,12 +13,13 @@ public class RMIClient {
         try {
 
             //Hole Argument (IP)
-            String ip = args[0];
-
+           // String ip = args[0];
+              String ip="10.0.0.2";
             //Lookup Objekt    Holle ATM Fabrik
             IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
 
             //Starte die Testmethoden
+            System.out.println("Client runs");
 
         } catch (Exception e) {
             System.out.println("ATMClient errors: " + e.getMessage());
