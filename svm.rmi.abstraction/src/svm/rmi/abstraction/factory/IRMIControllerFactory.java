@@ -31,43 +31,44 @@ public interface IRMIControllerFactory extends Remote {
      * @throws NoSessionFoundException
      * @throws RemoteException
      */
-    public IRMIContestController getRMIContestController() throws IllegalAccessException, InstantiationException, NoSessionFoundException, RemoteException;
+    public IRMIContestController getRMIContestController() throws RemoteException;
 
     /**
      * Change Contest
      *
      * @param contest
-     * @return
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @return IRMIContestController
+     * @throws RemoteException
      */
-    public IRMIContestController getRMIContestController(ITransferContest contest) throws IllegalAccessException, InstantiationException, RemoteException;
+    public IRMIContestController getRMIContestController(ITransferContest contest) throws RemoteException;
 
     /**
      * Confirm a Contest for Member
      *
      * @param member
-     * @return
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @return  IRMIContestConfirmationController
+     * @throws RemoteException
      */
     public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member) throws RemoteException;
 
     /**
      * Sub Team Confirmation
      * @return IRMISubTeamConfirmationController
+     * @throws RemoteException
      */
     public IRMISubTeamConfirmationController getRMISubTeamConfirmationController() throws RemoteException;
 
     /**
      * Handle SubTeams
      * @return  IRMISubTeamController
+     * @throws RemoteException
      */
-    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws NoSessionFoundException, IllegalAccessException, InstantiationException, RemoteException;
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws  RemoteException;
 
     /**
      * Handle SubTeams
      * @return  IRMISubTeamController
+     * @throws RemoteException
      */
     public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException;
 
