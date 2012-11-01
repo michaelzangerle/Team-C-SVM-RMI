@@ -1,5 +1,6 @@
 package svm.rmi.client;
 
+import svm.rmi.abstraction.controller.IRMIContestController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 
 import java.rmi.Naming;
@@ -20,9 +21,10 @@ public class RMIClient {
 
             //Starte die Testmethoden
             System.out.println("Client runs");
+           IRMIContestController contestController= factory.getRMIContestController();
 
         } catch (Exception e) {
-            System.out.println("ATMClient errors: " + e.getMessage());
+            System.out.println("RMI Client errors: " + e.getMessage());
             e.printStackTrace();
         }
     }

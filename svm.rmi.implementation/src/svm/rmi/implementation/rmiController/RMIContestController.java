@@ -26,24 +26,48 @@ public class RMIContestController   extends UnicastRemoteObject implements IRMIC
         this.contestController=contestController;
     }
 
-    @Override
-    public void setContestName(String s) throws DomainAttributeException {
-        contestController.setContestName(s);
+    public void setContestName(String s) throws RemoteException
+    {
+        try {
+            contestController.setContestName(s);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+
+        }
     }
 
     @Override
-    public void setContestStartDate(Date date) throws DomainParameterCheckException {
-        contestController.setContestStartDate(date);
+    public void setContestStartDate(Date date) throws RemoteException {
+        try {
+            contestController.setContestStartDate(date);
+        } catch (DomainParameterCheckException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 
     @Override
-    public void setContestEndDate(Date date) throws DomainParameterCheckException {
-        contestController.setContestEndDate(date);
+    public void setContestEndDate(Date date) throws RemoteException {
+        try {
+            contestController.setContestEndDate(date);
+        } catch (DomainParameterCheckException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 
     @Override
-    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException {
-       contestController.setContestFee(v);
+    public void setContestFee(float v) throws RemoteException {
+        try {
+            contestController.setContestFee(v);
+        } catch (DomainParameterCheckException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 
     @Override
@@ -52,17 +76,47 @@ public class RMIContestController   extends UnicastRemoteObject implements IRMIC
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-        contestController.start();
+    public void start() throws RemoteException{
+        try {
+            contestController.start();
+        } catch (NoSessionFoundException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (IllegalGetInstanceException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-       contestController.commit();
+    public void commit() throws RemoteException {
+        try {
+            contestController.commit();
+        } catch (ExistingTransactionException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (NoSessionFoundException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (NoTransactionException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        contestController.abort();
+    public void abort() throws RemoteException {
+        try {
+            contestController.abort();
+        } catch (ExistingTransactionException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (NoSessionFoundException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        } catch (NoTransactionException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
     }
 }
