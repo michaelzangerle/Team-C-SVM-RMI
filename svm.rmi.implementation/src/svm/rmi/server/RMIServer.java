@@ -1,4 +1,4 @@
-package svm.rmi.implementation.svm.rmi.server;
+package svm.rmi.server;
 
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiControllerFactory.RMIControllerFactory;
