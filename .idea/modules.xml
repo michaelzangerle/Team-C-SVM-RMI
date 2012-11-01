@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/svm.rmi.abstraction/svm.rmi.abstraction.iml" filepath="$PROJECT_DIR$/svm.rmi.abstraction/svm.rmi.abstraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svm.rmi.client/svm.rmi.client.iml" filepath="$PROJECT_DIR$/svm.rmi.client/svm.rmi.client.iml" />
       <module fileurl="file://$PROJECT_DIR$/svm.rmi.implementation/svm.rmi.implementation.iml" filepath="$PROJECT_DIR$/svm.rmi.implementation/svm.rmi.implementation.iml" />
     </modules>
   </component>

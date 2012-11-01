@@ -21,7 +21,7 @@ public interface IRMIControllerFactory extends Remote {
 
 
 
-    IRMIControllerFactory getInstance() throws RemoteException;
+
 
     /**
      * Get Contest Controller

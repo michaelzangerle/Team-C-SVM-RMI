@@ -32,8 +32,8 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
 
-    @Override
-    public IRMIControllerFactory getInstance() throws RemoteException {
+
+    public static IRMIControllerFactory getInstance() throws RemoteException {
         if(instance==null)
             instance=new RMIControllerFactory();
         return instance;
