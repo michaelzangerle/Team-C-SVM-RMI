@@ -4,6 +4,7 @@ import svm.rmi.abstraction.controller.IRMIContestController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 
 /**
  * Projectteam : Team C
@@ -22,8 +23,13 @@ public class RMIClient {
             //Starte die Testmethoden
             System.out.println("Client runs");
            IRMIContestController contestController= factory.getRMIContestController();
-
-        } catch (Exception e) {
+        }
+        catch (RemoteException e)
+        {
+             e.printStackTrace();
+            System.out.println("RMI Client Remote Expetion "+e.getMessage());
+        }
+        catch (Exception e) {
             System.out.println("RMI Client errors: " + e.getMessage());
             e.printStackTrace();
         }
