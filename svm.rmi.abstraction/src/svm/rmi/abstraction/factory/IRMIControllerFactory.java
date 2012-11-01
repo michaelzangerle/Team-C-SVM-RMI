@@ -24,12 +24,12 @@ public interface IRMIControllerFactory extends Remote {
     IRMIControllerFactory getInstance() throws RemoteException;
 
     /**
-     * To handle a Contest
-     *
-     * @param contest
-     * @return
+     * Get Contest Controller
+     * @return    IRMIContestController
      * @throws IllegalAccessException
      * @throws InstantiationException
+     * @throws NoSessionFoundException
+     * @throws RemoteException
      */
     public IRMIContestController getRMIContestController() throws IllegalAccessException, InstantiationException, NoSessionFoundException, RemoteException;
 
