@@ -2,6 +2,8 @@ package svm.rmi.abstraction.factory;
 
 import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferSubTeam;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
 import svm.rmi.abstraction.controller.IRMIContestController;
@@ -21,6 +23,14 @@ public interface IRMIControllerFactory extends Remote {
 
     IRMIControllerFactory getInstance() throws RemoteException;
 
+    /**
+     * To handle a Contest
+     *
+     * @param contest
+     * @return
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public IRMIContestController getRMIContestController() throws IllegalAccessException, InstantiationException, NoSessionFoundException, RemoteException;
 
     /**
@@ -47,12 +57,18 @@ public interface IRMIControllerFactory extends Remote {
      * Sub Team Confirmation
      * @return IRMISubTeamConfirmationController
      */
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController();
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController() throws RemoteException;
 
     /**
      * Handle SubTeams
      * @return  IRMISubTeamController
      */
-    public IRMISubTeamController getRMISubTeamController();
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws NoSessionFoundException, IllegalAccessException, InstantiationException, RemoteException;
+
+    /**
+     * Handle SubTeams
+     * @return  IRMISubTeamController
+     */
+    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException;
 
 }

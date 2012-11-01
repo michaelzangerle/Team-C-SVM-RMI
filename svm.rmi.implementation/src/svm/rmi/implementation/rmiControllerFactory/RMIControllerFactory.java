@@ -1,11 +1,11 @@
 package svm.rmi.implementation.rmiControllerFactory;
 
-import svm.domain.abstraction.modelInterfaces.IContest;
 import svm.domain.abstraction.modelInterfaces.ISubTeam;
-import svm.domain.abstraction.modelInterfaces.ITeam;
 import svm.logic.abstraction.LogicFacade;
 import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferSubTeam;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
 import svm.rmi.abstraction.controller.IRMIContestController;
@@ -14,6 +14,8 @@ import svm.rmi.abstraction.controller.IRMISubTeamController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiController.RMIContestConfirmationController;
 import svm.rmi.implementation.rmiController.RMIContestController;
+import svm.rmi.implementation.rmiController.RMISubTeamConfirmationController;
+import svm.rmi.implementation.rmiController.RMISubTeamController;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -54,17 +56,17 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController() throws RemoteException {
+        return  new RMISubTeamConfirmationController(LogicFacade.getSubTeamConfirmationController());
     }
 
     @Override
-    public IRMISubTeamController getRMISubTeamController(ITeam team, IContest contest) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws NoSessionFoundException, IllegalAccessException, InstantiationException, RemoteException {
+        return new RMISubTeamController(LogicFacade.getSubTeamController(team,contest));
     }
 
     @Override
-    public IRMISubTeamController getRMISubTeamController(ISubTeam subTeam) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException {
+        return new RMISubTeamController(LogicFacade.getSubTeamController(subTeam));
     }
 }

@@ -1,5 +1,6 @@
 package svm.rmi.implementation.rmiController;
 
+import svm.logic.abstraction.controller.ISubTeamController;
 import svm.rmi.abstraction.controller.IRMISubTeamController;
 
 import java.rmi.RemoteException;
@@ -11,9 +12,9 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class RMISubTeamController extends UnicastRemoteObject implements IRMISubTeamController {
 
-    IRMISubTeamController controller;
+    ISubTeamController controller;
 
-    protected RMISubTeamController(IRMISubTeamController controller) throws RemoteException {
+    public RMISubTeamController(ISubTeamController controller) throws RemoteException {
         super();
         this.controller=controller;
     }
