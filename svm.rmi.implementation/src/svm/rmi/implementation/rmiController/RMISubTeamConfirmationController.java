@@ -1,10 +1,16 @@
 package svm.rmi.implementation.rmiController;
 
 import svm.logic.abstraction.controller.ISubTeamConfirmationController;
+import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.transferobjects.ITransferSubTeam;
+import svm.persistence.abstraction.exceptions.ExistingTransactionException;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -20,4 +26,33 @@ public class RMISubTeamConfirmationController extends UnicastRemoteObject implem
     }
 
 
+    @Override
+    public List<ITransferSubTeam> getSubTeamsOfMember() {
+        return  controller.getSubTeamsOfMember();
+    }
+
+    @Override
+    public List<ITransferSubTeam> getCurrentSubTeamsOfMember() {
+        return controller.getCurrentSubTeamsOfMember();
+    }
+
+    @Override
+    public void setConfirmationForSubTeam(int i, boolean b, String s) {
+       controller.setConfirmationForSubTeam(i,b,s);
+    }
+
+    @Override
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
+        controller.start();
+    }
+
+    @Override
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+        controller.commit();
+    }
+
+    @Override
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+        controller.abort();
+    }
 }
