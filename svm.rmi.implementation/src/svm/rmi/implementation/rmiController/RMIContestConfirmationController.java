@@ -26,7 +26,7 @@ public class RMIContestConfirmationController extends UnicastRemoteObject implem
     }
 
     @Override
-    public List<ITransferContestHasTeams> getTeamsForNotConfirmedContests() throws IllegalGetInstanceException,RemoteException {
+    public List<ITransferContestHasTeams> getTeamsForNotConfirmedContests() throws IllegalGetInstanceException {
         return confirmationController.getTeamsForNotConfirmedContests();
     }
 

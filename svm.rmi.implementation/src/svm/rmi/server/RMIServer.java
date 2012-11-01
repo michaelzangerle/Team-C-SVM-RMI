@@ -20,8 +20,8 @@ public class RMIServer {
                     .getProtectionDomain().getCodeSource().getLocation().toString());
 
             //Hole Argument (IP)
-            String ip = args[0];
-
+            //String ip = args[0];
+             String ip="10.0.0.2";
             //Erzeugen eines SayHello Objektes
             IRMIControllerFactory factory= RMIControllerFactory.getInstance();
 
