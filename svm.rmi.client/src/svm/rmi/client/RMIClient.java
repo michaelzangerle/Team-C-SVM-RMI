@@ -1,6 +1,7 @@
 package svm.rmi.client;
 
 import svm.rmi.abstraction.controller.IRMIContestController;
+import svm.rmi.abstraction.controller.IRMISearchController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 
 import java.rmi.Naming;
@@ -25,7 +26,8 @@ public class RMIClient {
             System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("Client runs");
            IRMIContestController contestController= factory.getRMIContestController();
-           factory.getRMIMemberController
+           IRMISearchController searchController= factory.getRMISearchController();
+
         }
         catch (RemoteException e)
         {
