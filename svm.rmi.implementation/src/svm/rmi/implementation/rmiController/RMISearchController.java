@@ -21,7 +21,7 @@ import java.util.List;
 public class RMISearchController extends UnicastRemoteObject implements IRMISearchController {
 
     ISearchController controller;
-    protected RMISearchController(ISearchController searchController) throws RemoteException {
+    public RMISearchController(ISearchController searchController) throws RemoteException {
         super();
         this.controller=searchController;
     }

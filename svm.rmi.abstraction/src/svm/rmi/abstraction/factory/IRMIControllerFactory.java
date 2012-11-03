@@ -5,10 +5,7 @@ import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.logic.abstraction.transferobjects.ITransferSubTeam;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
-import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
-import svm.rmi.abstraction.controller.IRMIContestController;
-import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
-import svm.rmi.abstraction.controller.IRMISubTeamController;
+import svm.rmi.abstraction.controller.*;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -72,6 +69,17 @@ public interface IRMIControllerFactory extends Remote {
      */
     public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException;
 
+    /**
+     * Member Controller
+     * @return  IRMISubTeamController
+     * @throws RemoteException
+     */
+    IRMIMemberController getRMIMemberController(ITransferMember member) throws RemoteException;
 
-
+    /**
+     * Handle Searches
+     * @return  IRMISubTeamController
+     * @throws RemoteException
+     */
+    IRMISearchController getRMISearchController() throws RemoteException;
 }
