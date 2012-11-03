@@ -56,7 +56,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamConfirmationController
      * @throws RemoteException
      */
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController() throws RemoteException;
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member) throws RemoteException;
 
     /**
      * Handle SubTeams
