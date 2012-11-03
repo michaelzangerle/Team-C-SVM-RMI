@@ -21,6 +21,7 @@ import java.util.Date;
 public class RMIContestController   extends UnicastRemoteObject implements IRMIContestController {
 
     IContestController contestController;
+
     public RMIContestController(IContestController contestController) throws RemoteException {
         super();
         this.contestController=contestController;

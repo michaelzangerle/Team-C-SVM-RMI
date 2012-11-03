@@ -1,5 +1,6 @@
 package svm.rmi.server;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiControllerFactory.RMIControllerFactory;
 
@@ -30,6 +31,7 @@ public class RMIServer {
 
             //Binden des Objekts
             Naming.rebind("rmi://" + ip + ":1099/RMI", factory);
+            System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("RMIFactory bound in registry");
             System.out.println("Server ist running");
 

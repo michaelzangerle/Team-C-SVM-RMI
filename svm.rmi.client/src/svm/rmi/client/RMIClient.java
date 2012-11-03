@@ -22,6 +22,7 @@ public class RMIClient {
             IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
 
             //Starte die Testmethoden
+            System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("Client runs");
            IRMIContestController contestController= factory.getRMIContestController();
         }
