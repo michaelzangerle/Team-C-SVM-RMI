@@ -5,6 +5,7 @@ import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.controller.IContestController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferLocation;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
@@ -116,6 +117,105 @@ public class RMIContestController   extends UnicastRemoteObject implements IRMIC
             e.printStackTrace();
             throw new RemoteException(e.getMessage(),e);
         } catch (NoTransactionException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setPhone1(String val) throws RemoteException {
+        try {
+            contestController.setPhone1(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setPhone2(String val) throws RemoteException {
+        try {
+            contestController.setPhone2(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setEmail1(String val) throws RemoteException {
+        try {
+            contestController.setEmail1(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setEmail2(String val) throws RemoteException {
+        try {
+            contestController.setEmail2(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setFax(String val) throws RemoteException {
+        try {
+            contestController.setFax(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setStreet(String val) throws RemoteException {
+        try {
+            contestController.setStreet(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setStreetNumber(String val) throws RemoteException {
+        try {
+            contestController.setStreetNumber(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setLat(String val) throws RemoteException {
+        try {
+            contestController.setLat(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(),e);
+        }
+    }
+
+    @Override
+    public void setLong(String val) throws RemoteException {
+        try {
+            contestController.setLong(val);
+        } catch (DomainAttributeException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }
+
+    @Override
+    public void setLocation(ITransferLocation location) throws RemoteException {
+        try {
+            contestController.setLocation(location);
+        } catch (DomainAttributeException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(),e);
         }

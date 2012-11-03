@@ -1,6 +1,7 @@
 package svm.rmi.abstraction.controller;
 
 import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferLocation;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -20,4 +21,18 @@ public interface IRMIContestController extends Remote,Serializable {
     public void start() throws RemoteException;
     public void commit() throws RemoteException;
     public void abort() throws RemoteException;
+
+
+    void setPhone1(String val) throws RemoteException;
+    void setPhone2(String val) throws RemoteException;
+    void setEmail1(String val) throws RemoteException;
+    void setEmail2(String val) throws RemoteException;
+    void setFax(String val) throws RemoteException;
+    void setStreet(String val) throws RemoteException;
+    void setStreetNumber(String val) throws RemoteException;
+    void setLat(String val) throws RemoteException;
+    void setLong(String val) throws RemoteException;
+    void setLocation(ITransferLocation location) throws RemoteException;
+
+
 }
