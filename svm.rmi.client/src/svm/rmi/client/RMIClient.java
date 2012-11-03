@@ -17,6 +17,7 @@ public class RMIClient {
             //Hole Argument (IP)
            // String ip = args[0];
               String ip="10.0.0.2";
+            ip="172.16.63.174";
             //Lookup Objekt    Holle ATM Fabrik
             IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
 

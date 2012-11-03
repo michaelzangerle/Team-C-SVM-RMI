@@ -2,7 +2,9 @@ package svm.rmi.implementation.rmiController;
 
 import svm.logic.abstraction.controller.ISubTeamConfirmationController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.logic.abstraction.transferobjects.ITransferSubTeam;
+import svm.logic.abstraction.transferobjects.ITransferSubTeamHasMember;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
@@ -28,17 +30,17 @@ public class RMISubTeamConfirmationController extends UnicastRemoteObject implem
 
     @Override
     public List<ITransferSubTeam> getSubTeamsOfMember() {
-        return  controller.getSubTeamsOfMember();
+        return controller.getSubTeamsOfMember();
     }
 
     @Override
-    public List<ITransferSubTeam> getCurrentSubTeamsOfMember() {
-        return controller.getCurrentSubTeamsOfMember();
+    public void setConfirmationForSubTeam(ITransferSubTeamHasMember iTransferSubTeamHasMember, boolean b, String s) {
+        controller.setConfirmationForSubTeam(iTransferSubTeamHasMember,b,s);
     }
 
     @Override
-    public void setConfirmationForSubTeam(int i, boolean b, String s) {
-       controller.setConfirmationForSubTeam(i,b,s);
+    public ITransferMember getMember() {
+        return controller.getMember();
     }
 
     @Override
