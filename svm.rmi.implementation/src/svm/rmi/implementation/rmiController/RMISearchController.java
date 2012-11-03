@@ -28,31 +28,31 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
 
     @Override
     public List<ITransferMember> getMembers(String s, String s1, ITransferDepartment iTransferDepartment) throws NoSessionFoundException, IllegalGetInstanceException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+      return controller.getMembers(s,s1,iTransferDepartment);
     }
 
     @Override
     public List<ITransferMember> getMembers(Date date, Date date1) throws NoSessionFoundException, IllegalGetInstanceException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return getMembers(date,date1);
     }
 
     @Override
     public List<ITransferDepartment> getDepartments() throws IllegalGetInstanceException, NoSessionFoundException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return  getDepartments();
     }
 
     @Override
     public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.start();
     }
 
     @Override
     public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.commit();
     }
 
     @Override
     public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.abort();
     }
 }

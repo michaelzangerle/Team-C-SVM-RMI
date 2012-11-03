@@ -29,106 +29,106 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
 
     @Override
     public ITransferMember getMember() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return  controller.getMember();
     }
 
     @Override
     public void setTitle(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setTitle(s);
     }
 
     @Override
     public void setFirstName(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setFirstName(s);
     }
 
     @Override
     public void setLastName(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setLastName(s);
     }
 
     @Override
     public void setSocialNumber(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setSocialNumber(s);
     }
 
     @Override
     public void setBirthDate(Date date) throws DomainParameterCheckException {
-        //To change body of implemented methods use File | Settings | File Templates.
+      controller.setBirthDate(date);
     }
 
     @Override
     public void setGender(String s) throws DomainParameterCheckException, DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setGender(s);
     }
 
     @Override
     public void setEntryDate(Date date) throws DomainParameterCheckException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setEntryDate(date);
     }
 
     @Override
     public void setPhone1(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setPhone1(s);
     }
 
     @Override
     public void setPhone2(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setPhone2(s);
     }
 
     @Override
     public void setEmail1(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setEmail1(s);
     }
 
     @Override
     public void setEmail2(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+      controller.setEmail2(s);
     }
 
     @Override
     public void setFax(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setFax(s);
     }
 
     @Override
     public void setStreet(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setStreet(s);
     }
 
     @Override
     public void setStreetNumber(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setStreetNumber(s);
     }
 
     @Override
     public void setLat(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setLat(s);
     }
 
     @Override
     public void setLong(String s) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.setLong(s);
     }
 
     @Override
     public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.setLocation(iTransferLocation);
     }
 
     @Override
     public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.start();
     }
 
     @Override
     public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.commit();
     }
 
     @Override
     public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+      controller.abort();
     }
 }

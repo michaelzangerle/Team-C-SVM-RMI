@@ -26,36 +26,36 @@ public class RMITeamContestController extends UnicastRemoteObject implements IRM
 
     @Override
     public void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.addMatch(iTransferTeam,iTransferTeam1);
     }
 
     @Override
     public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.addResult(iTransferMatch,integer,integer1);
     }
 
     @Override
     public void addTeam(ITransferTeam iTransferTeam) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.addTeam(iTransferTeam);
     }
 
     @Override
     public void removeTeam(ITransferTeam iTransferTeam) {
-        //To change body of implemented methods use File | Settings | File Templates.
+      controller.removeTeam(iTransferTeam);
     }
 
     @Override
     public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.start();
     }
 
     @Override
     public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+       controller.commit();
     }
 
     @Override
     public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        controller.abort();
     }
 }
