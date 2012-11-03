@@ -17,7 +17,7 @@ public interface IRMIContestController extends Remote,Serializable {
     public void setContestStartDate(Date date) throws RemoteException;
     public void setContestEndDate(Date date) throws RemoteException;
     public void setContestFee(float v) throws RemoteException;
-    public ITransferContest getTransferContest();
+    public ITransferContest getTransferContest() throws RemoteException;
     public void start() throws RemoteException;
     public void commit() throws RemoteException;
     public void abort() throws RemoteException;

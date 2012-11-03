@@ -73,7 +73,7 @@ public class RMIContestController   extends UnicastRemoteObject implements IRMIC
     }
 
     @Override
-    public ITransferContest getTransferContest() {
+    public ITransferContest getTransferContest() throws RemoteException{
       return contestController.getTransferContest();
     }
 
