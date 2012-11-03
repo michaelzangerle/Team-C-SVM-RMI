@@ -22,7 +22,7 @@ import java.util.Date;
 public class RMIMemberController extends UnicastRemoteObject implements IRMIMemberController {
 
     IMemberController controller;
-    protected RMIMemberController(IMemberController memberController) throws RemoteException {
+    public RMIMemberController(IMemberController memberController) throws RemoteException {
         super();
         this.controller=memberController;
     }

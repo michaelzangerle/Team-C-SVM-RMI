@@ -25,6 +25,7 @@ public class RMIClient {
             System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("Client runs");
            IRMIContestController contestController= factory.getRMIContestController();
+           factory.getRMIMemberController
         }
         catch (RemoteException e)
         {

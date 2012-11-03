@@ -6,15 +6,9 @@ import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.logic.abstraction.transferobjects.ITransferSubTeam;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
-import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
-import svm.rmi.abstraction.controller.IRMIContestController;
-import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
-import svm.rmi.abstraction.controller.IRMISubTeamController;
+import svm.rmi.abstraction.controller.*;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
-import svm.rmi.implementation.rmiController.RMIContestConfirmationController;
-import svm.rmi.implementation.rmiController.RMIContestController;
-import svm.rmi.implementation.rmiController.RMISubTeamConfirmationController;
-import svm.rmi.implementation.rmiController.RMISubTeamController;
+import svm.rmi.implementation.rmiController.*;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -99,4 +93,22 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException {
         return new RMISubTeamController(LogicFacade.getSubTeamController(subTeam));
     }
+
+    @Override
+    public IRMIMemberController getRMIMemberController(ITransferMember member) throws RemoteException {
+        return  new RMIMemberController(LogicFacade.getMemberController(member));
+    }
+
+    @Override
+    public IRMISearchController getRMISearchController() throws RemoteException {
+        return  new RMISearchController(LogicFacade.getSearchController());
+    }
+
+    /*
+    @Override
+    public IRMITeamContestController getRMITeamContestController() throws RemoteException {
+        return  new RMITeamContestController(LogicFacade.getTeamContestController());
+    }
+    */
+
 }
