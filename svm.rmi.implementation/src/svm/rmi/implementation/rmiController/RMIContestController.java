@@ -28,196 +28,93 @@ public class RMIContestController   extends UnicastRemoteObject implements IRMIC
         this.contestController=contestController;
     }
 
-    public void setContestName(String s) throws RemoteException
-    {
-        try {
-            contestController.setContestName(s);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-
-        }
+    @Override
+    public void setContestName(String s) throws DomainAttributeException {
+       contestController.setContestName(s);
     }
 
     @Override
-    public void setContestStartDate(Date date) throws RemoteException {
-        try {
-            contestController.setContestStartDate(date);
-        } catch (DomainParameterCheckException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setContestStartDate(Date date) throws DomainParameterCheckException {
+       contestController.setContestEndDate(date);
     }
 
     @Override
-    public void setContestEndDate(Date date) throws RemoteException {
-        try {
-            contestController.setContestEndDate(date);
-        } catch (DomainParameterCheckException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setContestEndDate(Date date) throws DomainParameterCheckException {
+         contestController.setContestEndDate(date);
     }
 
     @Override
-    public void setContestFee(float v) throws RemoteException {
-        try {
-            contestController.setContestFee(v);
-        } catch (DomainParameterCheckException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException {
+        contestController.setContestFee(v);
     }
 
     @Override
-    public ITransferContest getTransferContest() throws RemoteException{
-      return contestController.getTransferContest();
+    public ITransferContest getTransferContest() {
+       return contestController.getTransferContest();
     }
 
     @Override
-    public void start() throws RemoteException{
-        try {
-            contestController.start();
-        } catch (NoSessionFoundException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (IllegalGetInstanceException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setPhone1(String s) throws DomainAttributeException {
+       contestController.setPhone1(s);
     }
 
     @Override
-    public void commit() throws RemoteException {
-        try {
-            contestController.commit();
-        } catch (ExistingTransactionException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (NoSessionFoundException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (NoTransactionException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setPhone2(String s) throws DomainAttributeException {
+       contestController.setPhone2(s);
     }
 
     @Override
-    public void abort() throws RemoteException {
-        try {
-            contestController.abort();
-        } catch (ExistingTransactionException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (NoSessionFoundException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        } catch (NoTransactionException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setEmail1(String s) throws DomainAttributeException {
+        contestController.setEmail1(s);
     }
 
     @Override
-    public void setPhone1(String val) throws RemoteException {
-        try {
-            contestController.setPhone1(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setEmail2(String s) throws DomainAttributeException {
+        contestController.setEmail2(s);
     }
 
     @Override
-    public void setPhone2(String val) throws RemoteException {
-        try {
-            contestController.setPhone2(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setFax(String s) throws DomainAttributeException {
+       contestController.setFax(s);
     }
 
     @Override
-    public void setEmail1(String val) throws RemoteException {
-        try {
-            contestController.setEmail1(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setStreet(String s) throws DomainAttributeException {
+       contestController.setStreet(s);
     }
 
     @Override
-    public void setEmail2(String val) throws RemoteException {
-        try {
-            contestController.setEmail2(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setStreetNumber(String s) throws DomainAttributeException {
+        contestController.setStreetNumber(s);
     }
 
     @Override
-    public void setFax(String val) throws RemoteException {
-        try {
-            contestController.setFax(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setLat(String s) throws DomainAttributeException {
+        contestController.setLat(s);
     }
 
     @Override
-    public void setStreet(String val) throws RemoteException {
-        try {
-            contestController.setStreet(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setLong(String s) throws DomainAttributeException {
+        contestController.setLong(s);
     }
 
     @Override
-    public void setStreetNumber(String val) throws RemoteException {
-        try {
-            contestController.setStreetNumber(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException {
+      contestController.setLocation(iTransferLocation);
     }
 
     @Override
-    public void setLat(String val) throws RemoteException {
-        try {
-            contestController.setLat(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
+        contestController.start();
     }
 
     @Override
-    public void setLong(String val) throws RemoteException {
-        try {
-            contestController.setLong(val);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+        contestController.commit();
     }
 
     @Override
-    public void setLocation(ITransferLocation location) throws RemoteException {
-        try {
-            contestController.setLocation(location);
-        } catch (DomainAttributeException e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage(),e);
-        }
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+        contestController.abort();
     }
 }
