@@ -29,7 +29,7 @@ public class RMISubTeamConfirmationController extends UnicastRemoteObject implem
 
 
     @Override
-    public List<ITransferSubTeam> getSubTeamsOfMember() {
+    public List<ITransferSubTeamHasMember> getSubTeamsOfMember() throws IllegalGetInstanceException {
         return controller.getSubTeamsOfMember();
     }
 
