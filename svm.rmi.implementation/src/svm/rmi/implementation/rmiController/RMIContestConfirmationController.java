@@ -22,31 +22,31 @@ public class RMIContestConfirmationController extends UnicastRemoteObject implem
 
     public RMIContestConfirmationController(IContestConfirmationController contestConfirmationController) throws RemoteException {
         super();
-        this.confirmationController=contestConfirmationController;
+        this.confirmationController = contestConfirmationController;
     }
 
     @Override
-    public List<ITransferContestHasTeams> getTeamsForNotConfirmedContests() throws IllegalGetInstanceException {
+    public List<ITransferContestHasTeams> getTeamsForNotConfirmedContests() throws IllegalGetInstanceException, RemoteException {
         return confirmationController.getTeamsForNotConfirmedContests();
     }
 
     @Override
-    public void confirmParticipationOfATeam(ITransferContestHasTeams iTransferContestHasTeams, boolean b, String s, boolean b1) {
-        confirmationController.confirmParticipationOfATeam(iTransferContestHasTeams,b,s,b1);
+    public void confirmParticipationOfATeam(ITransferContestHasTeams iTransferContestHasTeams, boolean b, String s, boolean b1) throws RemoteException {
+        confirmationController.confirmParticipationOfATeam(iTransferContestHasTeams, b, s, b1);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
         confirmationController.start();
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         confirmationController.commit();
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-       confirmationController.abort();
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
+        confirmationController.abort();
     }
 }

@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="svm.rmi.implementation:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/svm_rmi_implementation_jar</output-path>
-    <root id="archive" name="svm.rmi.implementation.jar">
+  <artifact type="jar" build-on-make="true" name="svm.rmi">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="svm.rmi.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/svm.rmi.implementation/src/META-INF/MANIFEST.MF" />
       </element>

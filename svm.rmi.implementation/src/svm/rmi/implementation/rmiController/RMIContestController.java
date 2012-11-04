@@ -19,102 +19,102 @@ import java.util.Date;
  * Projectteam : Team C
  * Date: 31.10.12
  */
-public class RMIContestController   extends UnicastRemoteObject implements IRMIContestController {
+public class RMIContestController extends UnicastRemoteObject implements IRMIContestController {
 
     IContestController contestController;
 
     public RMIContestController(IContestController contestController) throws RemoteException {
         super();
-        this.contestController=contestController;
+        this.contestController = contestController;
     }
 
     @Override
-    public void setContestName(String s) throws DomainAttributeException {
-       contestController.setContestName(s);
+    public void setContestName(String s) throws DomainAttributeException, RemoteException {
+        contestController.setContestName(s);
     }
 
     @Override
-    public void setContestStartDate(Date date) throws DomainParameterCheckException {
-       contestController.setContestEndDate(date);
+    public void setContestStartDate(Date date) throws DomainParameterCheckException, RemoteException {
+        contestController.setContestEndDate(date);
     }
 
     @Override
-    public void setContestEndDate(Date date) throws DomainParameterCheckException {
-         contestController.setContestEndDate(date);
+    public void setContestEndDate(Date date) throws DomainParameterCheckException, RemoteException {
+        contestController.setContestEndDate(date);
     }
 
     @Override
-    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException {
+    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException, RemoteException {
         contestController.setContestFee(v);
     }
 
     @Override
-    public ITransferContest getTransferContest() {
-       return contestController.getTransferContest();
+    public ITransferContest getTransferContest() throws RemoteException {
+        return contestController.getTransferContest();
     }
 
     @Override
-    public void setPhone1(String s) throws DomainAttributeException {
-       contestController.setPhone1(s);
+    public void setPhone1(String s) throws DomainAttributeException, RemoteException {
+        contestController.setPhone1(s);
     }
 
     @Override
-    public void setPhone2(String s) throws DomainAttributeException {
-       contestController.setPhone2(s);
+    public void setPhone2(String s) throws DomainAttributeException, RemoteException {
+        contestController.setPhone2(s);
     }
 
     @Override
-    public void setEmail1(String s) throws DomainAttributeException {
+    public void setEmail1(String s) throws DomainAttributeException, RemoteException {
         contestController.setEmail1(s);
     }
 
     @Override
-    public void setEmail2(String s) throws DomainAttributeException {
+    public void setEmail2(String s) throws DomainAttributeException, RemoteException {
         contestController.setEmail2(s);
     }
 
     @Override
-    public void setFax(String s) throws DomainAttributeException {
-       contestController.setFax(s);
+    public void setFax(String s) throws DomainAttributeException, RemoteException {
+        contestController.setFax(s);
     }
 
     @Override
-    public void setStreet(String s) throws DomainAttributeException {
-       contestController.setStreet(s);
+    public void setStreet(String s) throws DomainAttributeException, RemoteException {
+        contestController.setStreet(s);
     }
 
     @Override
-    public void setStreetNumber(String s) throws DomainAttributeException {
+    public void setStreetNumber(String s) throws DomainAttributeException, RemoteException {
         contestController.setStreetNumber(s);
     }
 
     @Override
-    public void setLat(String s) throws DomainAttributeException {
+    public void setLat(String s) throws DomainAttributeException, RemoteException {
         contestController.setLat(s);
     }
 
     @Override
-    public void setLong(String s) throws DomainAttributeException {
+    public void setLong(String s) throws DomainAttributeException, RemoteException {
         contestController.setLong(s);
     }
 
     @Override
-    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException {
-      contestController.setLocation(iTransferLocation);
+    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException, RemoteException {
+        contestController.setLocation(iTransferLocation);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
         contestController.start();
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         contestController.commit();
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         contestController.abort();
     }
 }

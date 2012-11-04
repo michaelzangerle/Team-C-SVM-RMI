@@ -1,6 +1,7 @@
 package svm.rmi.client;
 
-import svm.rmi.abstraction.controller.IRMIContestController;
+import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.rmi.abstraction.controller.IRMISearchController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 
 import java.rmi.Naming;
@@ -24,10 +25,14 @@ public class RMIClient {
             //Starte die Testmethoden
             System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("Client runs");
-            IRMIContestController contestController = factory.getRMIContestController();
-            //contestController.set
-            // IRMISearchController searchController= factory.getRMISearchController();
+            //IRMIContestController contestController = factory.getRMIContestController();
+            IRMISearchController searchController = factory.getRMISearchController();
 
+            searchController.start();
+            for (ITransferMember obj : searchController.getMembers("Georgi", "")) {
+                System.out.println(obj.getFirstName() + " " + obj.getLastName());
+            }
+            searchController.commit();
         } catch (RemoteException e) {
             e.printStackTrace();
             System.out.println("RMI Client Remote Expetion " + e.getMessage());

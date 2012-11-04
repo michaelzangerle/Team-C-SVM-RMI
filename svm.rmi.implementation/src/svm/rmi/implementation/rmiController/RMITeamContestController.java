@@ -19,43 +19,44 @@ import java.rmi.server.UnicastRemoteObject;
 public class RMITeamContestController extends UnicastRemoteObject implements IRMITeamContestController {
 
     ITeamContestController controller;
+
     protected RMITeamContestController(ITeamContestController controller) throws RemoteException {
         super();
-        this.controller=controller;
+        this.controller = controller;
     }
 
     @Override
-    public void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1) {
-        controller.addMatch(iTransferTeam,iTransferTeam1);
+    public void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1) throws RemoteException {
+        controller.addMatch(iTransferTeam, iTransferTeam1);
     }
 
     @Override
-    public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) {
-        controller.addResult(iTransferMatch,integer,integer1);
+    public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) throws RemoteException {
+        controller.addResult(iTransferMatch, integer, integer1);
     }
 
     @Override
-    public void addTeam(ITransferTeam iTransferTeam) {
+    public void addTeam(ITransferTeam iTransferTeam) throws RemoteException {
         controller.addTeam(iTransferTeam);
     }
 
     @Override
-    public void removeTeam(ITransferTeam iTransferTeam) {
-      controller.removeTeam(iTransferTeam);
+    public void removeTeam(ITransferTeam iTransferTeam) throws RemoteException {
+        controller.removeTeam(iTransferTeam);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-       controller.start();
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+        controller.start();
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-       controller.commit();
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
+        controller.commit();
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         controller.abort();
     }
 }

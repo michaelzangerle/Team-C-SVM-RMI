@@ -22,113 +22,114 @@ import java.util.Date;
 public class RMIMemberController extends UnicastRemoteObject implements IRMIMemberController {
 
     IMemberController controller;
+
     public RMIMemberController(IMemberController memberController) throws RemoteException {
         super();
-        this.controller=memberController;
+        this.controller = memberController;
     }
 
     @Override
     public ITransferMember getMember() {
-        return  controller.getMember();
+        return controller.getMember();
     }
 
     @Override
-    public void setTitle(String s) throws DomainAttributeException {
-       controller.setTitle(s);
+    public void setTitle(String s) throws DomainAttributeException, RemoteException {
+        controller.setTitle(s);
     }
 
     @Override
-    public void setFirstName(String s) throws DomainAttributeException {
-       controller.setFirstName(s);
+    public void setFirstName(String s) throws DomainAttributeException, RemoteException {
+        controller.setFirstName(s);
     }
 
     @Override
-    public void setLastName(String s) throws DomainAttributeException {
-       controller.setLastName(s);
+    public void setLastName(String s) throws DomainAttributeException, RemoteException {
+        controller.setLastName(s);
     }
 
     @Override
-    public void setSocialNumber(String s) throws DomainAttributeException {
+    public void setSocialNumber(String s) throws DomainAttributeException, RemoteException {
         controller.setSocialNumber(s);
     }
 
     @Override
-    public void setBirthDate(Date date) throws DomainParameterCheckException {
-      controller.setBirthDate(date);
+    public void setBirthDate(Date date) throws DomainParameterCheckException, RemoteException {
+        controller.setBirthDate(date);
     }
 
     @Override
-    public void setGender(String s) throws DomainParameterCheckException, DomainAttributeException {
-       controller.setGender(s);
+    public void setGender(String s) throws DomainParameterCheckException, DomainAttributeException, RemoteException {
+        controller.setGender(s);
     }
 
     @Override
-    public void setEntryDate(Date date) throws DomainParameterCheckException {
+    public void setEntryDate(Date date) throws DomainParameterCheckException, RemoteException {
         controller.setEntryDate(date);
     }
 
     @Override
-    public void setPhone1(String s) throws DomainAttributeException {
+    public void setPhone1(String s) throws DomainAttributeException, RemoteException {
         controller.setPhone1(s);
     }
 
     @Override
-    public void setPhone2(String s) throws DomainAttributeException {
-       controller.setPhone2(s);
+    public void setPhone2(String s) throws DomainAttributeException, RemoteException {
+        controller.setPhone2(s);
     }
 
     @Override
-    public void setEmail1(String s) throws DomainAttributeException {
+    public void setEmail1(String s) throws DomainAttributeException, RemoteException {
         controller.setEmail1(s);
     }
 
     @Override
-    public void setEmail2(String s) throws DomainAttributeException {
-      controller.setEmail2(s);
+    public void setEmail2(String s) throws DomainAttributeException, RemoteException {
+        controller.setEmail2(s);
     }
 
     @Override
-    public void setFax(String s) throws DomainAttributeException {
+    public void setFax(String s) throws DomainAttributeException, RemoteException {
         controller.setFax(s);
     }
 
     @Override
-    public void setStreet(String s) throws DomainAttributeException {
-       controller.setStreet(s);
+    public void setStreet(String s) throws DomainAttributeException, RemoteException {
+        controller.setStreet(s);
     }
 
     @Override
-    public void setStreetNumber(String s) throws DomainAttributeException {
-       controller.setStreetNumber(s);
+    public void setStreetNumber(String s) throws DomainAttributeException, RemoteException {
+        controller.setStreetNumber(s);
     }
 
     @Override
-    public void setLat(String s) throws DomainAttributeException {
-       controller.setLat(s);
+    public void setLat(String s) throws DomainAttributeException, RemoteException {
+        controller.setLat(s);
     }
 
     @Override
-    public void setLong(String s) throws DomainAttributeException {
-       controller.setLong(s);
+    public void setLong(String s) throws DomainAttributeException, RemoteException {
+        controller.setLong(s);
     }
 
     @Override
-    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException {
+    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException, RemoteException {
         controller.setLocation(iTransferLocation);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-       controller.start();
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+        controller.start();
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-       controller.commit();
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
+        controller.commit();
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
-      controller.abort();
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
+        controller.abort();
     }
 }

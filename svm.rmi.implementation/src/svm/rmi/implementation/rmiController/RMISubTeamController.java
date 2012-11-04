@@ -24,41 +24,41 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
 
     public RMISubTeamController(ISubTeamController controller) throws RemoteException {
         super();
-        this.controller=controller;
+        this.controller = controller;
     }
 
     @Override
-    public ITransferSubTeam getSubTeam() {
+    public ITransferSubTeam getSubTeam() throws RemoteException {
         return controller.getSubTeam();
     }
 
     @Override
-    public void setName(String s) {
+    public void setName(String s) throws RemoteException {
         controller.setName(s);
     }
 
     @Override
-    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException {
+    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException, RemoteException {
         controller.addMember(iTransferMember);
     }
 
     @Override
-    public void removeMember(ITransferMember iTransferMember) {
+    public void removeMember(ITransferMember iTransferMember) throws RemoteException {
         controller.removeMember(iTransferMember);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException {
-       controller.start();
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+        controller.start();
     }
 
     @Override
-    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         controller.commit();
     }
 
     @Override
-    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException {
+    public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         controller.abort();
     }
 }
