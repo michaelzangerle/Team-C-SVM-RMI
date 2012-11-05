@@ -3,9 +3,8 @@
     <output-path>$PROJECT_DIR$/out/artifacts/</output-path>
     <root id="archive" name="svm.rmi.abstraction.jar">
       <element id="module-output" name="svm.rmi.abstraction" />
-      <element id="module-output" name="svm.rmi.implementation" />
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.abstraction.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.implementation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.exceptions.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
