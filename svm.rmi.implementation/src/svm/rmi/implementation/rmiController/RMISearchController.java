@@ -1,5 +1,6 @@
 package svm.rmi.implementation.rmiController;
 
+import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.controller.ISearchController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.transferobjects.ITransferDepartment;
@@ -35,7 +36,7 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     }
 
     @Override
-    public List<ITransferMember> getMembers(String s, String s1, ITransferDepartment iTransferDepartment, Boolean paid) throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+    public List<ITransferMember> getMembers(String s, String s1, ITransferDepartment iTransferDepartment, Boolean paid) throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, DomainParameterCheckException {
         return controller.getMembers(s, s1, iTransferDepartment, paid);
     }
 
