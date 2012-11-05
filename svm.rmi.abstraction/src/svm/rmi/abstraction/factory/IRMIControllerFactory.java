@@ -26,7 +26,7 @@ public interface IRMIControllerFactory extends Remote {
      *
      * @throws RemoteException
      */
-    public IRMIContestController getRMIContestController() throws RemoteException;
+    public IRMIContestController getRMIContestController(ITransferMember user) throws RemoteException;
 
     /**
      * Change Contest
@@ -35,7 +35,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMIContestController
      * @throws RemoteException
      */
-    public IRMIContestController getRMIContestController(ITransferContest contest) throws RemoteException;
+    public IRMIContestController getRMIContestController(ITransferContest contest,ITransferMember user) throws RemoteException;
 
     /**
      * Confirm a Contest for Member
@@ -44,7 +44,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMIContestConfirmationController
      * @throws RemoteException
      */
-    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member) throws RemoteException;
+    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member,ITransferMember user) throws RemoteException;
 
     /**
      * Sub Team Confirmation
@@ -52,7 +52,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamConfirmationController
      * @throws RemoteException
      */
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member) throws RemoteException;
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member,ITransferMember user) throws RemoteException;
 
     /**
      * Handle SubTeams
@@ -60,7 +60,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws RemoteException;
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest,ITransferMember user) throws RemoteException;
 
     /**
      * Handle SubTeams
@@ -68,7 +68,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException;
+    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam,ITransferMember user) throws RemoteException;
 
     /**
      * Member Controller
@@ -76,7 +76,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    IRMIMemberController getRMIMemberController(ITransferMember member) throws RemoteException;
+    IRMIMemberController getRMIMemberController(ITransferMember member,ITransferMember user) throws RemoteException;
 
     /**
      * Handle Searches
@@ -84,7 +84,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    IRMISearchController getRMISearchController() throws RemoteException;
+    IRMISearchController getRMISearchController(ITransferMember user) throws RemoteException;
 
     /**
      * Handle Login
@@ -92,9 +92,9 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMILoginController
      * @throws RemoteException
      */
-    IRMILoginController getRMILoginController() throws RemoteException;
+    IRMILoginController getRMILoginController(ITransferMember user) throws RemoteException;
 
-    IRMITeamContestController getRMITeamContestController(ITransferContest contest) throws RemoteException;
+    IRMITeamContestController getRMITeamContestController(ITransferContest contest,ITransferMember user) throws RemoteException;
 
-    IRMIMemberController getRMIMemberController() throws RemoteException;
+    IRMIMemberController getRMIMemberController(ITransferMember user) throws RemoteException;
 }
