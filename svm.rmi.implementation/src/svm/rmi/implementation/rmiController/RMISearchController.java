@@ -35,6 +35,11 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     }
 
     @Override
+    public List<ITransferMember> getMembers(String s, String s1, ITransferDepartment iTransferDepartment, Boolean paid) throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+        return controller.getMembers(s, s1, iTransferDepartment, paid);
+    }
+
+    @Override
     public List<ITransferMember> getMembers(String s, String s1) throws RemoteException, NoSessionFoundException, IllegalGetInstanceException {
         return controller.getMembers(s, s1);
     }
