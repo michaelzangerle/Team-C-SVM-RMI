@@ -117,6 +117,7 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     @Override
     public IRMISearchController getRMISearchController(ITransferMember user) throws RemoteException {
         return new RMISearchController(LogicFacade.getSearchController(user));
+
     }
 
     @Override

@@ -39,18 +39,23 @@ public class RMIClient {
             //IRMIContestController contestController = factory.getRMIContestController();
             IRMILoginController loginController=factory.getRMILoginController();
             loginController.start();
+            ITransferMember m=null;
             if(loginController.login("mary.sluis","admin"))
             {
-            IRMISearchController searchController = factory.getRMISearchController(loginController.getMember());
+            m=loginController.getMember();
+            System.out.println(m.getFirstName());
+            loginController.commit();
+            }
 
-
+            IRMISearchController searchController = factory.getRMISearchController(m);
             searchController.start();
             for (ITransferMember obj : searchController.getMembers("Georgi", "")) {
                 System.out.println(obj.getFirstName() + " " + obj.getLastName());
             }
             searchController.commit();
-            loginController.commit();
-            }
+                System.out.println("Login funkt");
+
+
         } catch (RemoteException e) {
             e.printStackTrace();
             System.out.println("RMI Client Remote Expetion " + e.getMessage());
