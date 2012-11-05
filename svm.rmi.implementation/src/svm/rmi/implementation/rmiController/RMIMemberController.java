@@ -29,7 +29,7 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     }
 
     @Override
-    public ITransferMember getMember() {
+    public ITransferMember getMember() throws RemoteException {
         return controller.getMember();
     }
 
