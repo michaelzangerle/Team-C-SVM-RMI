@@ -95,4 +95,6 @@ public interface IRMIControllerFactory extends Remote {
     IRMILoginController getRMILoginController() throws RemoteException;
 
     IRMITeamContestController getRMITeamContestController(ITransferContest contest) throws RemoteException;
+
+    IRMIMemberController getRMIMemberController() throws RemoteException;
 }

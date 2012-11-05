@@ -99,6 +99,22 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
+    public IRMIMemberController getRMIMemberController() throws RemoteException {
+        try {
+            return new RMIMemberController(LogicFacade.getMemberController());
+        } catch (NoSessionFoundException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
+        }
+    }
+
+    @Override
     public IRMISearchController getRMISearchController() throws RemoteException {
         return new RMISearchController(LogicFacade.getSearchController());
     }
