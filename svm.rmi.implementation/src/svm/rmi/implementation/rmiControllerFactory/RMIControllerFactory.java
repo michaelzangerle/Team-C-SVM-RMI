@@ -95,7 +95,7 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
 
     @Override
     public IRMIMemberController getRMIMemberController(ITransferMember member, ITransferMember user) throws RemoteException {
-        return new RMIMemberController(LogicFacade.getMemberController(member,user));
+        return new RMIMemberController(LogicFacade.getMemberController(member, user));
     }
 
     @Override
@@ -120,8 +120,16 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public IRMITeamContestController getRMITeamContestController(ITransferContest contest,ITransferMember user) throws RemoteException {
-        return new RMITeamContestController(LogicFacade.getTeamContestController(user,contest));
+    public IRMIContestController getRMITeamContestController(ITransferContest contest,ITransferMember user) throws RemoteException {
+        try {
+            return new RMIContestController(LogicFacade.getContestController(user, contest));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
+        }
     }
 
     /**

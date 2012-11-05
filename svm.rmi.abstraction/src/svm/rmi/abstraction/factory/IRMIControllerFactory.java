@@ -86,7 +86,7 @@ public interface IRMIControllerFactory extends Remote {
      */
     IRMISearchController getRMISearchController(ITransferMember user) throws RemoteException;
 
-    IRMITeamContestController getRMITeamContestController(ITransferContest contest,ITransferMember user) throws RemoteException;
+    IRMIContestController getRMITeamContestController(ITransferContest contest,ITransferMember user) throws RemoteException;
 
     IRMIMemberController getRMIMemberController(ITransferMember user) throws RemoteException;
 

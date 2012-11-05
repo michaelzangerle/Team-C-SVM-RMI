@@ -1,7 +1,17 @@
 package svm.rmi.abstraction.controller;
 
+import svm.domain.abstraction.exception.DomainException;
+import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.exception.LogicException;
+import svm.logic.abstraction.transferobjects.ITransferMatch;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -38,4 +48,18 @@ public interface IRMIContestController extends Remote, Serializable, IRMIControl
     void setLong(java.lang.String s) throws svm.domain.abstraction.exception.DomainAttributeException, java.rmi.RemoteException;
 
     void setLocation(svm.logic.abstraction.transferobjects.ITransferLocation iTransferLocation) throws svm.domain.abstraction.exception.DomainAttributeException, java.rmi.RemoteException;
+
+    List<ITransferTeam> getTeams() throws RemoteException, IllegalGetInstanceException;
+
+    List<ITransferMatch> getMatches() throws RemoteException, IllegalGetInstanceException;
+
+    void removeTeam(ITransferTeam iTransferTeam) throws RemoteException, DomainException;
+
+    void addTeam(ITransferTeam iTransferTeam) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException;
+
+    void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) throws RemoteException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException;
+
+    void setDateForMatch(ITransferMatch match, Date date);
+
+    void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1, Date d1, Date d2) throws RemoteException, NoSessionFoundException, LogicException, DomainException, InstantiationException, IllegalAccessException;
 }
