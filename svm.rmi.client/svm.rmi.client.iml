@@ -9,6 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="svm.rmi.abstraction" />
     <orderEntry type="library" name="svm.logic.abstraction" level="project" />
+    <orderEntry type="library" name="svm.exceptions" level="project" />
   </component>
 </module>
 

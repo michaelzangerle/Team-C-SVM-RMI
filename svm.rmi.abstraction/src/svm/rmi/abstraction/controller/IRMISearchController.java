@@ -10,4 +10,5 @@ import java.rmi.Remote;
  * Date: 03.11.12
  */
 public interface IRMISearchController extends Remote,Serializable,ISearchController {
+
 }
