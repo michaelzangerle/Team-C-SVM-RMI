@@ -6,7 +6,6 @@ import svm.rmi.implementation.rmiControllerFactory.RMIControllerFactory;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
 
 /**
  * Projectteam : Team C
@@ -15,14 +14,16 @@ import java.rmi.registry.LocateRegistry;
 public class RMIServer {
     public static void main(String[] args) {
         try {
+            //LocateRegistry.createRegistry(1099);
+            String codebase = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
+            System.setProperty("java.rmi.server.codebase", codebase);
+            System.out.println("CodeBase: " + codebase);
+            String policy = PolicyFileLocator.getLocationOfPolicyFile();
+            System.setProperty("java.security.policy", policy);
+            System.out.println("Policy: " + policy);
 
-            LocateRegistry.createRegistry(1099);
+            System.setSecurityManager(new SecurityManager());
 
-            //Setzen der Codebase     und der Policy
-            System.setProperty("java.rmi.server.codebase", RMIServer.class
-                    .getProtectionDomain().getCodeSource().getLocation().toString());
-            String help = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
-            System.out.println("CodeBase: " + help);
             //Hole Argument (IP)
             //String ip = args[0];
             String ip = "127.0.0.1";

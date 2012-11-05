@@ -10,6 +10,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.exceptions.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.abstraction.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.implementation.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/svm.rmi.implementation/src/server.policy" />
     </root>
   </artifact>
 </component>

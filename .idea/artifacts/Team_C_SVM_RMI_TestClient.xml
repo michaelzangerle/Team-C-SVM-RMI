@@ -9,7 +9,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.abstraction.jar" path-in-jar="/" />
       <element id="module-output" name="svm.rmi.client" />
       <element id="module-output" name="svm.rmi.abstraction" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.implementation.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/svm.rmi.client/src/client.policy" />
     </root>
   </artifact>
 </component>
