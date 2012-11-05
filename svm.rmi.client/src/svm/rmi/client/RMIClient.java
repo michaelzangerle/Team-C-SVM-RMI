@@ -22,8 +22,12 @@ public class RMIClient {
             System.setSecurityManager(new RMISecurityManager());
 
             //Hole Argument (IP)
-            String ip = args[0];
-            if (ip == null) ip = "127.0.0.1";
+            String ip = "";
+            if (args.length > 0) {
+                ip = args[0];
+            } else {
+                ip = "127.0.0.1";
+            }
 
             //Lookup Objekt    Holle ATM Fabrik
             IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");

@@ -3,7 +3,9 @@ package svm.rmi.server;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiControllerFactory.RMIControllerFactory;
 
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
@@ -14,9 +16,18 @@ import java.rmi.RemoteException;
 public class RMIServer {
     public static void main(String[] args) {
         try {
+
+            //Hole Argument (IP)
+            String ip = "";
+            if (args.length > 0) {
+                ip = args[0];
+            } else {
+                ip = InetAddress.getLocalHost().getHostAddress();
+            }
+
             //LocateRegistry.createRegistry(1099);
             // LOCAL String codebase = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
-            String codebase = "http://localhost/svm/Team-C-SVM-RMI-Server.jar";
+            String codebase = "http://" + ip + "/svm/Team-C-SVM-RMI-Server.jar";
             System.setProperty("java.rmi.server.codebase", codebase);
             System.out.println("CodeBase: " + codebase);
             String policy = PolicyFileLocator.getLocationOfPolicyFile();
@@ -25,10 +36,6 @@ public class RMIServer {
 
             System.setSecurityManager(new SecurityManager());
 
-            //Hole Argument (IP)
-            //String ip = args[0];
-            String ip = "127.0.0.1";
-            //ip="172.16.63.174";
             //Erzeugen eines SayHello Objektes
             IRMIControllerFactory factory = RMIControllerFactory.getInstance();
 
@@ -44,6 +51,8 @@ public class RMIServer {
             e.printStackTrace();
         } catch (MalformedURLException e) {
             System.out.println("RMI Server error: " + e.getMessage());
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (UnknownHostException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
