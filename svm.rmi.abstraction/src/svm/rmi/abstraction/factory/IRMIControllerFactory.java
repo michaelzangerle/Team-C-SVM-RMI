@@ -4,7 +4,6 @@ import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.logic.abstraction.transferobjects.ITransferSubTeam;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
-import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.rmi.abstraction.controller.*;
 
 import java.rmi.Remote;
@@ -23,7 +22,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMIContestController
      * @throws IllegalAccessException
      * @throws InstantiationException
-     * @throws NoSessionFoundException
+     * @throws svm.persistence.abstraction.exceptions.NoSessionFoundException
      * @throws RemoteException
      */
     public IRMIContestController getRMIContestController() throws RemoteException;
