@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="svm.logic.implementation">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.implementation.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
