@@ -1,5 +1,7 @@
 package svm.rmi.abstraction.controller;
 
+import svm.domain.abstraction.exception.DomainAttributeException;
+
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -45,4 +47,7 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
     void setLong(java.lang.String s) throws svm.domain.abstraction.exception.DomainAttributeException, java.rmi.RemoteException;
 
     void setLocation(svm.logic.abstraction.transferobjects.ITransferLocation iTransferLocation) throws svm.domain.abstraction.exception.DomainAttributeException, java.rmi.RemoteException;
+
+    void setUsername(String userName) throws RemoteException, DomainAttributeException;
+
 }

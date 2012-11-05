@@ -119,6 +119,11 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     }
 
     @Override
+    public void setUsername(String userName) throws RemoteException, DomainAttributeException {
+        controller.setUsername(userName);
+    }
+
+    @Override
     public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
         controller.start();
     }
