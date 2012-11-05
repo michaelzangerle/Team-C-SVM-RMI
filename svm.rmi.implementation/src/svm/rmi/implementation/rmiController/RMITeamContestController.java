@@ -35,6 +35,11 @@ public class RMITeamContestController extends UnicastRemoteObject implements IRM
     }
 
     @Override
+    public void setDateForMatch(ITransferMatch match, Date date) {
+        controller.setDateForMatch(match,date);
+    }
+
+    @Override
     public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) throws RemoteException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException {
         controller.addResult(iTransferMatch, integer, integer1);
     }

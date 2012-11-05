@@ -1,7 +1,10 @@
 package svm.rmi.abstraction.controller;
 
+import svm.logic.abstraction.transferobjects.ITransferMatch;
+
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.util.Date;
 
 /**
  * Projectteam : Team C
@@ -19,4 +22,7 @@ public interface IRMITeamContestController extends Remote, Serializable, IRMICon
     java.util.List<svm.logic.abstraction.transferobjects.ITransferTeam> getTeams() throws java.rmi.RemoteException, svm.logic.abstraction.exception.IllegalGetInstanceException;
 
     void addMatch(svm.logic.abstraction.transferobjects.ITransferTeam p0, svm.logic.abstraction.transferobjects.ITransferTeam p1, java.util.Date p2, java.util.Date p3) throws java.rmi.RemoteException, svm.domain.abstraction.exception.DomainException, svm.persistence.abstraction.exceptions.NoSessionFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException, svm.logic.abstraction.exception.LogicException;
+
+    void setDateForMatch(ITransferMatch match,Date date);
+
 }
