@@ -3,6 +3,7 @@ package svm.rmi.implementation.rmiController;
 import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.controller.ISearchController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferDepartment;
 import svm.logic.abstraction.transferobjects.ITransferLocation;
 import svm.logic.abstraction.transferobjects.ITransferMember;
@@ -58,6 +59,11 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     @Override
     public List<ITransferLocation> getLocations() throws RemoteException, IllegalGetInstanceException, NoSessionFoundException {
         return controller.getLocations();
+    }
+
+    @Override
+    public List<ITransferContest> getContests() {
+        return controller.getContests();
     }
 
     @Override
