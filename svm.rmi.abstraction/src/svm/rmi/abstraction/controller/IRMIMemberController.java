@@ -2,6 +2,7 @@ package svm.rmi.abstraction.controller;
 
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  * Projectteam : Team C
@@ -9,7 +10,7 @@ import java.rmi.Remote;
  */
 public interface IRMIMemberController extends Remote, Serializable, IRMIController {
 
-    svm.logic.abstraction.transferobjects.ITransferMember getMember();
+    svm.logic.abstraction.transferobjects.ITransferMember getMember() throws RemoteException;
 
     void setTitle(java.lang.String s) throws svm.domain.abstraction.exception.DomainAttributeException, java.rmi.RemoteException;
 
