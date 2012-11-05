@@ -62,7 +62,7 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     }
 
     @Override
-    public List<ITransferContest> getContests() {
+    public List<ITransferContest> getContests() throws IllegalGetInstanceException, NoSessionFoundException {
         return controller.getContests();
     }
 
