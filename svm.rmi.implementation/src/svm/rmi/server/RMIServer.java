@@ -15,7 +15,8 @@ public class RMIServer {
     public static void main(String[] args) {
         try {
             //LocateRegistry.createRegistry(1099);
-            String codebase = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
+            // LOCAL String codebase = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
+            String codebase = "http://localhost/svm/Team-C-SVM-RMI-Server.jar";
             System.setProperty("java.rmi.server.codebase", codebase);
             System.out.println("CodeBase: " + codebase);
             String policy = PolicyFileLocator.getLocationOfPolicyFile();
