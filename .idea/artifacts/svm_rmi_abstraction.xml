@@ -5,6 +5,7 @@
       <element id="module-output" name="svm.rmi.abstraction" />
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.abstraction.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.exceptions.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.implementation/lib/svm.logic.implementation.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

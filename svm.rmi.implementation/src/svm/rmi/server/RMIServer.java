@@ -22,6 +22,7 @@ public class RMIServer {
             System.setProperty("java.rmi.server.codebase", RMIServer.class
                     .getProtectionDomain().getCodeSource().getLocation().toString());
             String help = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
+            System.out.println("CodeBase: " + help);
             //Hole Argument (IP)
             //String ip = args[0];
             String ip = "127.0.0.1";
