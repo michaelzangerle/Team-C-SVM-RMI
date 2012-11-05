@@ -17,12 +17,10 @@ import java.rmi.RemoteException;
 public interface IRMIControllerFactory extends Remote {
 
 
-
-
-
     /**
      * Get Contest Controller
-     * @return    IRMIContestController
+     *
+     * @return IRMIContestController
      * @throws IllegalAccessException
      * @throws InstantiationException
      * @throws NoSessionFoundException
@@ -43,13 +41,14 @@ public interface IRMIControllerFactory extends Remote {
      * Confirm a Contest for Member
      *
      * @param member
-     * @return  IRMIContestConfirmationController
+     * @return IRMIContestConfirmationController
      * @throws RemoteException
      */
     public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member) throws RemoteException;
 
     /**
      * Sub Team Confirmation
+     *
      * @return IRMISubTeamConfirmationController
      * @throws RemoteException
      */
@@ -57,29 +56,41 @@ public interface IRMIControllerFactory extends Remote {
 
     /**
      * Handle SubTeams
-     * @return  IRMISubTeamController
+     *
+     * @return IRMISubTeamController
      * @throws RemoteException
      */
-    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws  RemoteException;
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest) throws RemoteException;
 
     /**
      * Handle SubTeams
-     * @return  IRMISubTeamController
+     *
+     * @return IRMISubTeamController
      * @throws RemoteException
      */
     public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam) throws RemoteException;
 
     /**
      * Member Controller
-     * @return  IRMISubTeamController
+     *
+     * @return IRMISubTeamController
      * @throws RemoteException
      */
     IRMIMemberController getRMIMemberController(ITransferMember member) throws RemoteException;
 
     /**
      * Handle Searches
-     * @return  IRMISubTeamController
+     *
+     * @return IRMISubTeamController
      * @throws RemoteException
      */
     IRMISearchController getRMISearchController() throws RemoteException;
+
+    /**
+     * Handle Login
+     *
+     * @return IRMILoginController
+     * @throws RemoteException
+     */
+    IRMILoginController getRMILoginController() throws RemoteException;
 }
