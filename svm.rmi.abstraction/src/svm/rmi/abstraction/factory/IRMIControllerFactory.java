@@ -23,6 +23,7 @@ public interface IRMIControllerFactory extends Remote {
      * @throws IllegalAccessException
      * @throws InstantiationException
      * @throws svm.persistence.abstraction.exceptions.NoSessionFoundException
+     *
      * @throws RemoteException
      */
     public IRMIContestController getRMIContestController() throws RemoteException;
@@ -92,4 +93,6 @@ public interface IRMIControllerFactory extends Remote {
      * @throws RemoteException
      */
     IRMILoginController getRMILoginController() throws RemoteException;
+
+    IRMITeamContestController getRMITeamContestController(ITransferContest contest) throws RemoteException;
 }

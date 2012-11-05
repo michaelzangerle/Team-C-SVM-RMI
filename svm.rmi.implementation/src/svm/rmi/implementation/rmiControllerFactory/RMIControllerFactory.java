@@ -102,12 +102,11 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     public IRMISearchController getRMISearchController() throws RemoteException {
         return new RMISearchController(LogicFacade.getSearchController());
     }
-    /* TODO
+
     @Override
-    public IRMITeamContestController getRMITeamContestController() throws RemoteException {
-        return new RMITeamContestController(LogicFacade.getTeamContestController());
+    public IRMITeamContestController getRMITeamContestController(ITransferContest contest) throws RemoteException {
+        return new RMITeamContestController(LogicFacade.getTeamContestController(contest));
     }
-    */
 
     /**
      * Handle Login
