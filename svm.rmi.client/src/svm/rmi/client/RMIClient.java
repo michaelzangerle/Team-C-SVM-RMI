@@ -39,7 +39,7 @@ public class RMIClient {
             //IRMIContestController contestController = factory.getRMIContestController();
             IRMILoginController loginController=factory.getRMILoginController();
             loginController.start();
-            if(loginController.login("mary.sluis",""))
+            if(loginController.login("mary.sluis","admin"))
             {
             IRMISearchController searchController = factory.getRMISearchController(loginController.getMember());
 
