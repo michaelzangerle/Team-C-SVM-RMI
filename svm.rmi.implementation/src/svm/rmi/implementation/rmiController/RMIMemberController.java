@@ -124,6 +124,11 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     }
 
     @Override
+    public void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException {
+        this.controller.setPaidCurrentYear();
+    }
+
+    @Override
     public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
         controller.start();
     }

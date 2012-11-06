@@ -1,6 +1,7 @@
 package svm.rmi.abstraction.controller;
 
 import svm.domain.abstraction.exception.DomainAttributeException;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -50,4 +51,5 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
 
     void setUsername(String userName) throws RemoteException, DomainAttributeException;
 
+    void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException;
 }
