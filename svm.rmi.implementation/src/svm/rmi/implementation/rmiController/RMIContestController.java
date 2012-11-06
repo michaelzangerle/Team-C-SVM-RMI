@@ -40,7 +40,7 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
 
     @Override
     public void setContestStartDate(Date date) throws DomainParameterCheckException, RemoteException {
-        contestController.setContestEndDate(date);
+        contestController.setContestStartDate(date);
     }
 
     @Override
