@@ -129,7 +129,7 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void setDateForMatch(ITransferMatch match, Date date) {
+    public void setDateForMatch(ITransferMatch match, Date date) throws RemoteException{
         contestController.setDateForMatch(match,date);
     }
 
