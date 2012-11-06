@@ -3,6 +3,7 @@ package svm.rmi.abstraction.controller;
 import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
 import java.io.Serializable;
@@ -27,4 +28,6 @@ public interface IRMISearchController extends Remote, Serializable, IRMIControll
     java.util.List<svm.logic.abstraction.transferobjects.ITransferLocation> getLocations() throws svm.logic.abstraction.exception.IllegalGetInstanceException, svm.persistence.abstraction.exceptions.NoSessionFoundException, java.rmi.RemoteException;
 
     java.util.List<ITransferContest> getContests() throws IllegalGetInstanceException, NoSessionFoundException,RemoteException;
+
+    java.util.List<ITransferTeam> getTeams() throws IllegalGetInstanceException, NoSessionFoundException,RemoteException;
 }
