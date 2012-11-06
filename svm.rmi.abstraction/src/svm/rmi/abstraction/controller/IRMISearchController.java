@@ -15,11 +15,11 @@ import java.rmi.RemoteException;
  * Date: 03.11.12
  */
 public interface IRMISearchController extends Remote, Serializable, IRMIController {
-    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String s, java.lang.String s1, svm.logic.abstraction.transferobjects.ITransferDepartment iTransferDepartment) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException;
+    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String firstname, java.lang.String lastname, svm.logic.abstraction.transferobjects.ITransferDepartment iTransferDepartment) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException;
 
-    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String s, java.lang.String s1, svm.logic.abstraction.transferobjects.ITransferDepartment iTransferDepartment, Boolean paid) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException, DomainParameterCheckException;
+    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String firstname, java.lang.String lastname, svm.logic.abstraction.transferobjects.ITransferDepartment iTransferDepartment, Boolean paid) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException, DomainParameterCheckException;
 
-    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String s, java.lang.String s1) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException;
+    java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.lang.String firstname, java.lang.String lastname) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException;
 
     java.util.List<svm.logic.abstraction.transferobjects.ITransferMember> getMembers(java.util.Date date, java.util.Date date1) throws svm.persistence.abstraction.exceptions.NoSessionFoundException, svm.logic.abstraction.exception.IllegalGetInstanceException, java.rmi.RemoteException;
 

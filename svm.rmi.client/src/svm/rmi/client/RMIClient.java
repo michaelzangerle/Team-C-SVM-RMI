@@ -1,6 +1,8 @@
 package svm.rmi.client;
 
+import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.rmi.abstraction.controller.IRMIContestController;
 import svm.rmi.abstraction.controller.IRMILoginController;
 import svm.rmi.abstraction.controller.IRMISearchController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
@@ -8,6 +10,7 @@ import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -47,13 +50,29 @@ public class RMIClient {
             loginController.commit();
             }
 
-            IRMISearchController searchController = factory.getRMISearchController(m);
+           /* IRMISearchController searchController = factory.getRMISearchController(m);
             searchController.start();
             for (ITransferMember obj : searchController.getMembers("Georgi", "")) {
                 System.out.println(obj.getFirstName() + " " + obj.getLastName());
             }
             searchController.commit();
                 System.out.println("Login funkt");
+*/
+
+            // 1. contest ausgewählt via searchcontroller
+            // 2. contestconoller init und start
+
+            IRMISearchController searchController = factory.getRMISearchController(m);
+            searchController.start();
+
+            List<ITransferContest> contests = searchController.getContests();
+
+            for(ITransferContest c : contests){
+                System.out.println(c.getName());
+            }
+
+            IRMIContestController contestController = factory.getRMIContestController(contests.get(0), m);
+            contestController.start();
 
 
         } catch (RemoteException e) {
