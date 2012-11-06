@@ -62,4 +62,6 @@ public interface IRMIContestController extends Remote, Serializable, IRMIControl
     void setDateForMatch(ITransferMatch match, Date date) throws RemoteException;
 
     void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1, Date d1, Date d2) throws RemoteException, NoSessionFoundException, LogicException, DomainException, InstantiationException, IllegalAccessException;
+
+    void setResult(ITransferMatch match, Float home, Float away) throws NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, RemoteException;
 }
