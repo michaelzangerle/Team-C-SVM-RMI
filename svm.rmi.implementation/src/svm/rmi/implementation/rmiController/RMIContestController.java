@@ -134,8 +134,8 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) throws RemoteException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException {
-        contestController.addResult(iTransferMatch, integer, integer1);
+    public void addResult(ITransferMatch iTransferMatch, Float f1, Float f2) throws RemoteException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException {
+        contestController.addResult(iTransferMatch, f1, f2);
     }
 
     @Override
