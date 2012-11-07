@@ -1,5 +1,6 @@
 package svm.rmi.client;
 
+import svm.logic.abstraction.transferobjects.ITransferAuth;
 import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.rmi.abstraction.controller.IRMIContestController;
@@ -42,7 +43,7 @@ public class RMIClient {
             //IRMIContestController contestController = factory.getRMIContestController();
             IRMILoginController loginController=factory.getRMILoginController();
             loginController.start();
-            ITransferMember m=null;
+            ITransferAuth m=null;
             if(loginController.login("mary.sluis","admin"))
             {
             m=loginController.getMember();
