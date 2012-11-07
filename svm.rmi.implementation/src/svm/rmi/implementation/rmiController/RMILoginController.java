@@ -9,6 +9,7 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMILoginController;
 
+import javax.transaction.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -26,7 +27,7 @@ public class RMILoginController extends UnicastRemoteObject implements IRMILogin
     }
 
     @Override
-    public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException {
+    public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException, NotSupportedException, InstantiationException, IllegalAccessException {
         controller.start();
     }
 

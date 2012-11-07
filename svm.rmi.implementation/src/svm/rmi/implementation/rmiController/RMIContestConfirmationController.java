@@ -8,6 +8,7 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
 
+import javax.transaction.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
@@ -36,7 +37,7 @@ public class RMIContestConfirmationController extends UnicastRemoteObject implem
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, NotSupportedException, InstantiationException, IllegalAccessException {
         confirmationController.start();
     }
 
