@@ -6,6 +6,7 @@ import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.controller.IContestController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.LogicException;
+import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferContest;
 import svm.logic.abstraction.transferobjects.ITransferLocation;
 import svm.logic.abstraction.transferobjects.ITransferMatch;
@@ -15,6 +16,7 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMIContestController;
 
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
@@ -34,22 +36,22 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void setContestName(String s) throws DomainAttributeException, RemoteException {
+    public void setContestName(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setContestName(s);
     }
 
     @Override
-    public void setContestStartDate(Date date) throws DomainParameterCheckException, RemoteException {
+    public void setContestStartDate(Date date) throws DomainParameterCheckException, RemoteException, NotAllowException {
+        contestController.setContestStartDate(date);
+    }
+
+    @Override
+    public void setContestEndDate(Date date) throws DomainParameterCheckException, RemoteException, NotAllowException {
         contestController.setContestEndDate(date);
     }
 
     @Override
-    public void setContestEndDate(Date date) throws DomainParameterCheckException, RemoteException {
-        contestController.setContestEndDate(date);
-    }
-
-    @Override
-    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException, RemoteException {
+    public void setContestFee(float v) throws DomainParameterCheckException, DomainAttributeException, RemoteException, NotAllowException {
         contestController.setContestFee(v);
     }
 
@@ -59,57 +61,57 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void setPhone1(String s) throws DomainAttributeException, RemoteException {
+    public void setPhone1(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setPhone1(s);
     }
 
     @Override
-    public void setPhone2(String s) throws DomainAttributeException, RemoteException {
+    public void setPhone2(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setPhone2(s);
     }
 
     @Override
-    public void setEmail1(String s) throws DomainAttributeException, RemoteException {
+    public void setEmail1(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setEmail1(s);
     }
 
     @Override
-    public void setEmail2(String s) throws DomainAttributeException, RemoteException {
+    public void setEmail2(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setEmail2(s);
     }
 
     @Override
-    public void setFax(String s) throws DomainAttributeException, RemoteException {
+    public void setFax(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setFax(s);
     }
 
     @Override
-    public void setStreet(String s) throws DomainAttributeException, RemoteException {
+    public void setStreet(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setStreet(s);
     }
 
     @Override
-    public void setStreetNumber(String s) throws DomainAttributeException, RemoteException {
+    public void setStreetNumber(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setStreetNumber(s);
     }
 
     @Override
-    public void setLat(String s) throws DomainAttributeException, RemoteException {
+    public void setLat(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setLat(s);
     }
 
     @Override
-    public void setLong(String s) throws DomainAttributeException, RemoteException {
+    public void setLong(String s) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setLong(s);
     }
 
     @Override
-    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException, RemoteException {
+    public void setLocation(ITransferLocation iTransferLocation) throws DomainAttributeException, RemoteException, NotAllowException {
         contestController.setLocation(iTransferLocation);
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, NotSupportedException, InstantiationException, IllegalAccessException {
         contestController.start();
     }
 
@@ -124,27 +126,27 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1, Date d1, Date d2) throws RemoteException, NoSessionFoundException, LogicException, DomainException, InstantiationException, IllegalAccessException {
+    public void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1, Date d1, Date d2) throws RemoteException, NoSessionFoundException, LogicException, DomainException, InstantiationException, IllegalAccessException, NotSupportedException, NotAllowException {
         contestController.addMatch(iTransferTeam, iTransferTeam1, d1, d2);
     }
 
     @Override
-    public void setDateForMatch(ITransferMatch match, Date date) {
+    public void setResult(ITransferMatch match, Integer home, Integer away) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, NotAllowException {
+        contestController.setResult(match,home,away);
+    }
+
+    @Override
+    public void setDateForMatch(ITransferMatch match, Date date) throws RemoteException, NotAllowException {
         contestController.setDateForMatch(match,date);
     }
 
     @Override
-    public void addResult(ITransferMatch iTransferMatch, Integer integer, Integer integer1) throws RemoteException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException {
-        contestController.addResult(iTransferMatch, integer, integer1);
-    }
-
-    @Override
-    public void addTeam(ITransferTeam iTransferTeam) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException {
+    public void addTeam(ITransferTeam iTransferTeam) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, NotAllowException {
         contestController.addTeam(iTransferTeam);
     }
 
     @Override
-    public void removeTeam(ITransferTeam iTransferTeam) throws RemoteException, DomainException {
+    public void removeTeam(ITransferTeam iTransferTeam) throws RemoteException, DomainException, NotAllowException {
         contestController.removeTeam(iTransferTeam);
     }
 

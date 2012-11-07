@@ -2,12 +2,14 @@ package svm.rmi.implementation.rmiController;
 
 import svm.logic.abstraction.controller.ILoginController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.transferobjects.ITransferAuth;
 import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMILoginController;
 
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -25,7 +27,7 @@ public class RMILoginController extends UnicastRemoteObject implements IRMILogin
     }
 
     @Override
-    public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException {
+    public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException, NotSupportedException, InstantiationException, IllegalAccessException {
         controller.start();
     }
 
@@ -45,7 +47,7 @@ public class RMILoginController extends UnicastRemoteObject implements IRMILogin
     }
 
     @Override
-    public ITransferMember getMember() throws RemoteException {
+    public ITransferAuth getMember() throws RemoteException {
         return controller.getMember();
     }
 }

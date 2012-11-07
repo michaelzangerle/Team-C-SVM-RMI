@@ -11,6 +11,7 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMISubTeamController;
 
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -38,7 +39,7 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
     }
 
     @Override
-    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException, RemoteException {
+    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException, RemoteException, NotSupportedException {
         controller.addMember(iTransferMember);
     }
 
@@ -48,7 +49,7 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
     }
 
     @Override
-    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException {
+    public void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, NotSupportedException, InstantiationException, IllegalAccessException {
         controller.start();
     }
 
