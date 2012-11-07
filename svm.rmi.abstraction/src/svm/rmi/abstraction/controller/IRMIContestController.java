@@ -8,7 +8,7 @@ import svm.logic.abstraction.transferobjects.ITransferMatch;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
-import javax.transaction.NotSupportedException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;

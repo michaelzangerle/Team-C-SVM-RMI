@@ -4,8 +4,9 @@ import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 
-import javax.transaction.NotSupportedException;
+
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -17,7 +18,7 @@ import java.rmi.RemoteException;
 public interface IRMIController extends Remote, Serializable {
     void commit() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException;
 
-    void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, NotSupportedException, InstantiationException, IllegalAccessException, javax.transaction.NotSupportedException, NotSupportedException, NotSupportedException, NotSupportedException, NotSupportedException, NotSupportedException, NotSupportedException;
+    void start() throws NoSessionFoundException, IllegalGetInstanceException, RemoteException, InstantiationException, IllegalAccessException,NotSupportedException;
 
     void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException;
 }

@@ -7,6 +7,7 @@ import svm.rmi.abstraction.controller.*;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiController.*;
 
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -42,13 +43,16 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
         } catch (NoSessionFoundException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(), e);
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
         }
     }
 
     @Override
     public IRMIContestController getRMIContestController(ITransferContest contest, ITransferAuth user) throws RemoteException {
         try {
-            return new RMIContestController(LogicFacade.getContestController(user,contest));
+            return new RMIContestController(LogicFacade.getContestController(user, contest));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(), e);
@@ -59,20 +63,20 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member,ITransferAuth user) throws RemoteException {
-        return new RMIContestConfirmationController(LogicFacade.getContestConfirmationController(user,member));
+    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException {
+        return new RMIContestConfirmationController(LogicFacade.getContestConfirmationController(user, member));
     }
 
 
     @Override
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member,ITransferAuth user) throws RemoteException {
-        return new RMISubTeamConfirmationController(LogicFacade.getSubTeamConfirmationController(user,member));
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException {
+        return new RMISubTeamConfirmationController(LogicFacade.getSubTeamConfirmationController(user, member));
     }
 
     @Override
-    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest,ITransferAuth user) throws RemoteException {
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest, ITransferAuth user) throws RemoteException {
         try {
-            return new RMISubTeamController(LogicFacade.getSubTeamController(user,team, contest));
+            return new RMISubTeamController(LogicFacade.getSubTeamController(user, team, contest));
         } catch (NoSessionFoundException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(), e);
@@ -82,12 +86,14 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
         } catch (InstantiationException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(), e);
+        } catch (NotSupportedException e) {
+            throw new RemoteException(e.getMessage(), e);
         }
     }
 
     @Override
-    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam,ITransferAuth user) throws RemoteException {
-        return new RMISubTeamController(LogicFacade.getSubTeamController(user,subTeam));
+    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam, ITransferAuth user) throws RemoteException {
+        return new RMISubTeamController(LogicFacade.getSubTeamController(user, subTeam));
     }
 
     @Override
@@ -108,6 +114,9 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage(), e);
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage(), e);
         }
     }
 
@@ -118,7 +127,7 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public IRMIContestController getRMITeamContestController(ITransferContest contest,ITransferAuth user) throws RemoteException {
+    public IRMIContestController getRMITeamContestController(ITransferContest contest, ITransferAuth user) throws RemoteException {
         try {
             return new RMIContestController(LogicFacade.getContestController(user, contest));
         } catch (IllegalAccessException e) {

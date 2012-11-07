@@ -1,6 +1,6 @@
 package svm.rmi.abstraction.controller;
 
-import javax.transaction.NotSupportedException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.io.Serializable;
 import java.rmi.Remote;
 

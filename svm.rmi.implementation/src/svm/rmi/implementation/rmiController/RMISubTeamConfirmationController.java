@@ -9,7 +9,7 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
 
-import javax.transaction.NotSupportedException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;

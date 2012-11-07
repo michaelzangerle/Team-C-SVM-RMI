@@ -4,7 +4,7 @@ import svm.domain.abstraction.exception.DomainAttributeException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
-import javax.transaction.NotSupportedException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
