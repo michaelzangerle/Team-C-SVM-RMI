@@ -10,7 +10,6 @@
     <orderEntry type="module" module-name="svm.rmi.abstraction" />
     <orderEntry type="library" name="svm.exceptions" level="project" />
     <orderEntry type="library" name="svm.logic.abstraction" level="project" />
-    <orderEntry type="library" name="svm.logic.implementation" level="project" />
   </component>
 </module>
 
