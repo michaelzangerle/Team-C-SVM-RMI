@@ -1,6 +1,9 @@
 package svm.rmi.abstraction.factory;
 
-import svm.logic.abstraction.transferobjects.*;
+import svm.logic.abstraction.transferobjects.ITransferAuth;
+import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.rmi.abstraction.controller.*;
 
 import java.rmi.Remote;
@@ -32,7 +35,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMIContestController
      * @throws RemoteException
      */
-    public IRMIContestController getRMIContestController(ITransferContest contest,ITransferAuth user) throws RemoteException;
+    public IRMIContestController getRMIContestController(ITransferContest contest, ITransferAuth user) throws RemoteException;
 
     /**
      * Confirm a Contest for Member
@@ -41,7 +44,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMIContestConfirmationController
      * @throws RemoteException
      */
-    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member,ITransferAuth user) throws RemoteException;
+    public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException;
 
     /**
      * Sub Team Confirmation
@@ -49,7 +52,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamConfirmationController
      * @throws RemoteException
      */
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member,ITransferAuth user) throws RemoteException;
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException;
 
     /**
      * Handle SubTeams
@@ -57,15 +60,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest,ITransferAuth user) throws RemoteException;
-
-    /**
-     * Handle SubTeams
-     *
-     * @return IRMISubTeamController
-     * @throws RemoteException
-     */
-    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam,ITransferAuth user) throws RemoteException;
+    public IRMISubTeamController getRMISubTeamController(ITransferTeam team, ITransferContest contest, ITransferAuth user) throws RemoteException;
 
     /**
      * Member Controller
@@ -73,7 +68,7 @@ public interface IRMIControllerFactory extends Remote {
      * @return IRMISubTeamController
      * @throws RemoteException
      */
-    IRMIMemberController getRMIMemberController(ITransferMember member,ITransferAuth user) throws RemoteException;
+    IRMIMemberController getRMIMemberController(ITransferMember member, ITransferAuth user) throws RemoteException;
 
     /**
      * Handle Searches
@@ -83,7 +78,7 @@ public interface IRMIControllerFactory extends Remote {
      */
     IRMISearchController getRMISearchController(ITransferAuth user) throws RemoteException;
 
-    IRMIContestController getRMITeamContestController(ITransferContest contest,ITransferAuth user) throws RemoteException;
+    IRMIContestController getRMITeamContestController(ITransferContest contest, ITransferAuth user) throws RemoteException;
 
     IRMIMemberController getRMIMemberController(ITransferAuth user) throws RemoteException;
 

@@ -2,7 +2,10 @@ package svm.rmi.implementation.rmiControllerFactory;
 
 
 import svm.logic.abstraction.LogicFacade;
-import svm.logic.abstraction.transferobjects.*;
+import svm.logic.abstraction.transferobjects.ITransferAuth;
+import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.*;
@@ -90,11 +93,6 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
         } catch (NotSupportedException e) {
             throw new RemoteException(e.getMessage(), e);
         }
-    }
-
-    @Override
-    public IRMISubTeamController getRMISubTeamController(ITransferSubTeam subTeam, ITransferAuth user) throws RemoteException {
-        return new RMISubTeamController(LogicFacade.getSubTeamController(user, subTeam));
     }
 
     @Override
