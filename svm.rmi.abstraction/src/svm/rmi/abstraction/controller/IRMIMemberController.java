@@ -1,7 +1,9 @@
 package svm.rmi.abstraction.controller;
 
 import svm.domain.abstraction.exception.DomainAttributeException;
+import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.exception.NotAllowException;
+import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
 import svm.persistence.abstraction.exceptions.NotSupportedException;
@@ -54,4 +56,9 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
     void setUsername(String userName) throws RemoteException, DomainAttributeException, NotAllowException;
 
     void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException, NotSupportedException, NotAllowException;
+
+    void addPrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, NoSessionFoundException, DomainAttributeException, IllegalAccessException, InstantiationException,RemoteException;
+
+    void removePrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, DomainAttributeException,RemoteException;
+
 }

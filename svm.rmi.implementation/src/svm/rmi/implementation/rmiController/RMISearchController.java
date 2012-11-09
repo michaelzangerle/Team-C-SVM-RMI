@@ -71,6 +71,11 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     }
 
     @Override
+    public List<ITransferUserPrivilege> getUserPrivileges() throws NotAllowException, IllegalGetInstanceException, NoSessionFoundException, RemoteException {
+        return  controller.getUserPrivileges();
+    }
+
+    @Override
     public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException, NotSupportedException, InstantiationException, IllegalAccessException {
         controller.start();
     }
