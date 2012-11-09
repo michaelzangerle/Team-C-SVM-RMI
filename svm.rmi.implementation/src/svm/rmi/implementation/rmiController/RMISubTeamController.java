@@ -9,11 +9,12 @@ import svm.logic.abstraction.transferobjects.ITransferSubTeam;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMISubTeamController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -46,6 +47,16 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
     @Override
     public void removeMember(ITransferMember iTransferMember) throws RemoteException {
         controller.removeMember(iTransferMember);
+    }
+
+    @Override
+    public List<ITransferMember> getMembersOfSubTeam() throws IllegalGetInstanceException, RemoteException {
+        return controller.getMembersOfSubTeam();
+    }
+
+    @Override
+    public List<ITransferMember> getMemberOfTeam() throws IllegalGetInstanceException, RemoteException {
+        return getMemberOfTeam();
     }
 
     @Override
