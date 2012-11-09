@@ -53,5 +53,5 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
 
     void setUsername(String userName) throws RemoteException, DomainAttributeException, NotAllowException;
 
-    void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException, NotSupportedException, NotAllowException, javax.transaction.NotSupportedException;
+    void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException, NotSupportedException, NotAllowException;
 }

@@ -3,13 +3,12 @@ package svm.rmi.implementation.rmiController;
 import svm.logic.abstraction.controller.ILoginController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.transferobjects.ITransferAuth;
-import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMILoginController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -44,6 +43,10 @@ public class RMILoginController extends UnicastRemoteObject implements IRMILogin
     @Override
     public boolean login(String s, String s1) throws RemoteException, IllegalGetInstanceException, NoSessionFoundException {
         return controller.login(s, s1);
+    }
+    @Override
+    public boolean loginWithoutLdap(String s,String s1) throws IllegalGetInstanceException, NoSessionFoundException, RemoteException {
+        return controller.loginWithoutLdap(s,s1);
     }
 
     @Override
