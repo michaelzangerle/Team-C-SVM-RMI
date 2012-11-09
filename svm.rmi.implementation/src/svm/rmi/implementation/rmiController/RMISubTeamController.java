@@ -56,7 +56,7 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
 
     @Override
     public List<ITransferMember> getMemberOfTeam() throws IllegalGetInstanceException, RemoteException {
-        return getMemberOfTeam();
+        return controller.getMemberOfTeam();
     }
 
     @Override
