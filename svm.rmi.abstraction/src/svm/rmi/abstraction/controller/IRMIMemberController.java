@@ -2,14 +2,16 @@ package svm.rmi.abstraction.controller;
 
 import svm.domain.abstraction.exception.DomainAttributeException;
 import svm.domain.abstraction.exception.DomainParameterCheckException;
+import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
-
 import svm.persistence.abstraction.exceptions.NotSupportedException;
+
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -57,8 +59,9 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
 
     void setPaidCurrentYear() throws RemoteException, DomainAttributeException, NoSessionFoundException, IllegalAccessException, InstantiationException, NotSupportedException, NotAllowException;
 
-    void addPrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, NoSessionFoundException, DomainAttributeException, IllegalAccessException, InstantiationException,RemoteException;
+    void addPrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, NoSessionFoundException, DomainAttributeException, IllegalAccessException, InstantiationException, RemoteException;
 
-    void removePrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, DomainAttributeException,RemoteException;
+    void removePrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, DomainAttributeException, RemoteException;
 
+    List<ITransferUserPrivilege> getPrivileges() throws RemoteException, IllegalGetInstanceException;
 }

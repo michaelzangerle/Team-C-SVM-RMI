@@ -11,12 +11,13 @@ import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMIMemberController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -132,13 +133,18 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     }
 
     @Override
+    public List<ITransferUserPrivilege> getPrivileges() throws RemoteException, IllegalGetInstanceException {
+        return controller.getPrivileges();
+    }
+
+    @Override
     public void addPrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, NoSessionFoundException, DomainAttributeException, IllegalAccessException, InstantiationException, RemoteException {
         controller.addPrivilege(privilege);
     }
 
     @Override
     public void removePrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, DomainAttributeException, RemoteException {
-       controller.removePrivilege(privilege);
+        controller.removePrivilege(privilege);
     }
 
     @Override
