@@ -1,0 +1,5 @@
+RMI Layer
+============
+Die RMI Schicht besteht aus Wrappern für die UseCase Controller. Diese Wrapper erben von der Superklasse UnicastRemoteObject. Dies erlaubt ein schnelles Wechseln der Kommunikationsschicht. Um z.B: die Kommunikation auf CORBA umzustellen. Müssten nur CORBA-Wrapper für die Controller implementiert werden. Die Controller für sich müssten nicht angefasst werden.
+
+Die Klasse RMI-Server enthält die Main Methode des Server Prozesses. In Ihr wird die die RMI-Controller-Factory an die Registry gebunden. Zusätzlich werden das Policy-File und die CodeBase gesetzt. Über diese können die Clients sich fehlende CLASS Dateien herunterladen. Aufgrund der Verteiltheit des Systems haben wir uns dazu entschieden, das JAR, in dem alle CLASS Files liegen, auf einem Lokalen Webserver abzulegen. Dies garantiert, dass alle Dateien heruntergeladen werden können. Auch wenn der Client auf einem anderen Rechner ausgeführt wird.
