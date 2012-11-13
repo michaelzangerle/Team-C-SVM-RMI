@@ -4,6 +4,7 @@ import svm.domain.abstraction.exception.DomainException;
 import svm.logic.abstraction.controller.ISubTeamController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.LogicException;
+import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferMember;
 import svm.logic.abstraction.transferobjects.ITransferSubTeam;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
@@ -35,17 +36,17 @@ public class RMISubTeamController extends UnicastRemoteObject implements IRMISub
     }
 
     @Override
-    public void setName(String s) throws RemoteException {
+    public void setName(String s) throws RemoteException, NotAllowException {
         controller.setName(s);
     }
 
     @Override
-    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException, RemoteException, NotSupportedException {
+    public void addMember(ITransferMember iTransferMember) throws LogicException, NoSessionFoundException, DomainException, IllegalAccessException, InstantiationException, RemoteException, NotSupportedException, NotAllowException {
         controller.addMember(iTransferMember);
     }
 
     @Override
-    public void removeMember(ITransferMember iTransferMember) throws RemoteException {
+    public void removeMember(ITransferMember iTransferMember) throws RemoteException, NotAllowException {
         controller.removeMember(iTransferMember);
     }
 
