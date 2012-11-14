@@ -37,5 +37,5 @@ public interface IRMISearchController extends Remote, Serializable, IRMIControll
 
     List<ITransferUserPrivilege> getUserPrivileges() throws NotAllowException, IllegalGetInstanceException, NoSessionFoundException,RemoteException;
 
-    List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException;
+    List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException, RemoteException;
 }

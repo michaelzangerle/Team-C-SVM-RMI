@@ -66,7 +66,7 @@ public interface IRMIContestController extends Remote, Serializable, IRMIControl
 
     void setResult(ITransferMatch match, Integer home, Integer away) throws NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, RemoteException, NotAllowException;
 
-    void setSport(ITransferSport sport) throws NotAllowException;
+    void setSport(ITransferSport sport) throws NotAllowException, RemoteException;
 
-    void setFinished(Boolean finished);
+    void setFinished(Boolean finished) throws RemoteException;
 }

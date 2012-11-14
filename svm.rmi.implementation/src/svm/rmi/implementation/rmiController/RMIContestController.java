@@ -133,12 +133,12 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     }
 
     @Override
-    public void setSport(ITransferSport sport) throws NotAllowException {
+    public void setSport(ITransferSport sport) throws NotAllowException, RemoteException{
         contestController.setSport(sport);
     }
 
     @Override
-    public void setFinished(Boolean finished) {
+    public void setFinished(Boolean finished) throws RemoteException{
        contestController.setFinished(finished);
     }
 
