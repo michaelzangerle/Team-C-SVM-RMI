@@ -4,6 +4,7 @@ import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferContest;
+import svm.logic.abstraction.transferobjects.ITransferSport;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
@@ -35,4 +36,6 @@ public interface IRMISearchController extends Remote, Serializable, IRMIControll
     java.util.List<ITransferTeam> getTeams() throws IllegalGetInstanceException, NoSessionFoundException, RemoteException, NotAllowException;
 
     List<ITransferUserPrivilege> getUserPrivileges() throws NotAllowException, IllegalGetInstanceException, NoSessionFoundException,RemoteException;
+
+    List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException;
 }

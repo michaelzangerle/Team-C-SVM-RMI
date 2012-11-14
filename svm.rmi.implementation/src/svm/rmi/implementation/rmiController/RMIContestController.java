@@ -7,10 +7,7 @@ import svm.logic.abstraction.controller.IContestController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.LogicException;
 import svm.logic.abstraction.exception.NotAllowException;
-import svm.logic.abstraction.transferobjects.ITransferContest;
-import svm.logic.abstraction.transferobjects.ITransferLocation;
-import svm.logic.abstraction.transferobjects.ITransferMatch;
-import svm.logic.abstraction.transferobjects.ITransferTeam;
+import svm.logic.abstraction.transferobjects.*;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
@@ -133,6 +130,16 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     @Override
     public void setResult(ITransferMatch match, Integer home, Integer away) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, NotAllowException {
         contestController.setResult(match,home,away);
+    }
+
+    @Override
+    public void setSport(ITransferSport sport) throws NotAllowException {
+        contestController.setSport(sport);
+    }
+
+    @Override
+    public void setFinished(Boolean finished) {
+       contestController.setFinished(finished);
     }
 
     @Override

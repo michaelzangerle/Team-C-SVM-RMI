@@ -5,6 +5,7 @@ import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.LogicException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferMatch;
+import svm.logic.abstraction.transferobjects.ITransferSport;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 
@@ -64,4 +65,8 @@ public interface IRMIContestController extends Remote, Serializable, IRMIControl
     void addMatch(ITransferTeam iTransferTeam, ITransferTeam iTransferTeam1, Date d1, Date d2) throws RemoteException, NoSessionFoundException, LogicException, DomainException, InstantiationException, IllegalAccessException, NotSupportedException, NotAllowException;
 
     void setResult(ITransferMatch match, Integer home, Integer away) throws NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, RemoteException, NotAllowException;
+
+    void setSport(ITransferSport sport) throws NotAllowException;
+
+    void setFinished(Boolean finished);
 }

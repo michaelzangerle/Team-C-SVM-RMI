@@ -76,6 +76,11 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
     }
 
     @Override
+    public List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException {
+        return controller.getSports();
+    }
+
+    @Override
     public void start() throws RemoteException, NoSessionFoundException, IllegalGetInstanceException, NotSupportedException, InstantiationException, IllegalAccessException {
         controller.start();
     }
