@@ -8,8 +8,8 @@ import svm.logic.abstraction.transferobjects.ITransferMatch;
 import svm.logic.abstraction.transferobjects.ITransferSport;
 import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
-
 import svm.persistence.abstraction.exceptions.NotSupportedException;
+
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -69,4 +69,6 @@ public interface IRMIContestController extends Remote, Serializable, IRMIControl
     void setSport(ITransferSport sport) throws NotAllowException, RemoteException;
 
     void setFinished(Boolean finished) throws RemoteException;
+
+    List<ITransferTeam> getPossibleTeams() throws RemoteException, IllegalGetInstanceException, NoSessionFoundException;
 }

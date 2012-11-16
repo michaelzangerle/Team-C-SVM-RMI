@@ -11,9 +11,9 @@ import svm.logic.abstraction.transferobjects.*;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMIContestController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
@@ -129,22 +129,22 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
 
     @Override
     public void setResult(ITransferMatch match, Integer home, Integer away) throws RemoteException, NoSessionFoundException, DomainException, InstantiationException, IllegalAccessException, NotAllowException {
-        contestController.setResult(match,home,away);
+        contestController.setResult(match, home, away);
     }
 
     @Override
-    public void setSport(ITransferSport sport) throws NotAllowException, RemoteException{
+    public void setSport(ITransferSport sport) throws NotAllowException, RemoteException {
         contestController.setSport(sport);
     }
 
     @Override
-    public void setFinished(Boolean finished) throws RemoteException{
-       contestController.setFinished(finished);
+    public void setFinished(Boolean finished) throws RemoteException {
+        contestController.setFinished(finished);
     }
 
     @Override
     public void setDateForMatch(ITransferMatch match, Date date) throws RemoteException, NotAllowException {
-        contestController.setDateForMatch(match,date);
+        contestController.setDateForMatch(match, date);
     }
 
     @Override
@@ -165,6 +165,11 @@ public class RMIContestController extends UnicastRemoteObject implements IRMICon
     @Override
     public List<ITransferTeam> getTeams() throws RemoteException, IllegalGetInstanceException {
         return contestController.getTeams();
+    }
+
+    @Override
+    public List<ITransferTeam> getPossibleTeams() throws RemoteException, IllegalGetInstanceException, NoSessionFoundException {
+        return contestController.getPossibleTeams();
     }
 
 }
