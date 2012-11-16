@@ -1,10 +1,8 @@
 package svm.rmi.client;
 
-import svm.logic.abstraction.LogicFacade;
-import svm.logic.abstraction.controller.ILoginController;
 import svm.logic.abstraction.transferobjects.ITransferAuth;
 import svm.logic.abstraction.transferobjects.ITransferContest;
-import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.rmi.abstraction.controller.IRMIContestController;
 import svm.rmi.abstraction.controller.IRMILoginController;
 import svm.rmi.abstraction.controller.IRMISearchController;
@@ -47,7 +45,7 @@ public class RMIClient {
 
             IRMILoginController lc = factory.getRMILoginController();
             lc.start();
-            lc.login("tf-test", "Pak3bGEh");
+            lc.loginWithoutLdap("tf-test", "Pak3bGEh");
             ITransferAuth user = lc.getMember();
             lc.abort();
 
@@ -69,12 +67,16 @@ public class RMIClient {
 
             List<ITransferContest> contests = searchController.getContests();
 
-            for(ITransferContest c : contests){
+            for (ITransferContest c : contests) {
                 System.out.println(c.getName());
             }
 
-            //IRMIContestController contestController = factory.getRMIContestController(contests.get(0), user);
-            //contestController.start();
+            IRMIContestController contestController = factory.getRMIContestController(contests.get(0), user);
+            contestController.start();
+            System.out.println(contestController.getTransferContest().getSport());
+            for (ITransferTeam team : contestController.getPossibleTeams()) {
+                System.out.println(team);
+            }
 
 
         } catch (RemoteException e) {
