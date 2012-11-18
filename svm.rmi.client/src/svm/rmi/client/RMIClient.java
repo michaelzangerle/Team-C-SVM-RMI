@@ -12,7 +12,13 @@ import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
+import java.util.Hashtable;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.naming.*;
 
 /**
  * Projectteam : Team C
@@ -21,11 +27,6 @@ import java.util.List;
 public class RMIClient {
     public static void main(String[] args) {
         try {
-            String policy = PolicyFileLocator.getLocationOfPolicyFile();
-            System.setProperty("java.security.policy", policy);
-            System.out.println("Policy: " + policy);
-
-            System.setSecurityManager(new RMISecurityManager());
 
             //Hole Argument (IP)
             String ip = "";
@@ -35,8 +36,15 @@ public class RMIClient {
                 ip = InetAddress.getLocalHost().getHostAddress();
             }
 
+            Hashtable env = new Hashtable();
+            env.put("java.naming.factory.initial",
+                    "com.sun.jndi.cosnaming.CNCtxFactory");
+            env.put("java.naming.provider.url", "iiop://<hostname>:900");
+            Context ic = new InitialContext(env);
+
             //Lookup Objekt    Holle ATM Fabrik
-            IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
+            //IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
+            IRMIControllerFactory factory = (IRMIControllerFactory) PortableRemoteObject.narrow(ic.lookup("Path: rmi://" + ip + ":1099/RMI"), IRMIControllerFactory.class);
 
             //Starte die Testmethoden
             System.out.println("Path: rmi://" + ip + ":1099/RMI");

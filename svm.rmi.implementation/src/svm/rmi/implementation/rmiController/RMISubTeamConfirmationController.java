@@ -11,14 +11,14 @@ import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
 
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 import java.util.List;
 
 /**
  * Projectteam : Team C
  * Date: 01.11.12
  */
-public class RMISubTeamConfirmationController extends UnicastRemoteObject implements IRMISubTeamConfirmationController {
+public class RMISubTeamConfirmationController extends PortableRemoteObject implements IRMISubTeamConfirmationController {
 
     ISubTeamConfirmationController controller;
 

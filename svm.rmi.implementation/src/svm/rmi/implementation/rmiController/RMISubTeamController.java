@@ -14,14 +14,14 @@ import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMISubTeamController;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 import java.util.List;
 
 /**
  * Projectteam : Team C
  * Date: 01.11.12
  */
-public class RMISubTeamController extends UnicastRemoteObject implements IRMISubTeamController {
+public class RMISubTeamController extends PortableRemoteObject implements IRMISubTeamController {
 
     ISubTeamController controller;
 

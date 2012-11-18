@@ -10,13 +10,13 @@ import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMILoginController;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 
 /**
  * Projectteam : Team C
  * Date: 03.11.12
  */
-public class RMILoginController extends UnicastRemoteObject implements IRMILoginController {
+public class RMILoginController extends PortableRemoteObject implements IRMILoginController {
 
     ILoginController controller;
 

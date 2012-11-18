@@ -15,7 +15,7 @@ import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMIContestController;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +23,7 @@ import java.util.List;
  * Projectteam : Team C
  * Date: 31.10.12
  */
-public class RMIContestController extends UnicastRemoteObject implements IRMIContestController {
+public class RMIContestController extends PortableRemoteObject implements IRMIContestController {
 
     IContestController contestController;
 

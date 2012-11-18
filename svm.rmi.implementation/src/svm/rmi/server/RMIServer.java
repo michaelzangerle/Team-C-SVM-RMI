@@ -3,6 +3,9 @@ package svm.rmi.server;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiControllerFactory.RMIControllerFactory;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
@@ -27,12 +30,12 @@ public class RMIServer {
 
             //LocateRegistry.createRegistry(1099);
             // LOCAL String codebase = RMIServer.class.getProtectionDomain().getCodeSource().getLocation().toString();
-            String codebase = "http://" + ip + "/svm/Team-C-SVM-RMI-Server.jar";
-            System.setProperty("java.rmi.server.codebase", codebase);
-            System.out.println("CodeBase: " + codebase);
-            String policy = PolicyFileLocator.getLocationOfPolicyFile();
-            System.setProperty("java.security.policy", policy);
-            System.out.println("Policy: " + policy);
+            Context initialNamingContext = null;
+            try {
+                initialNamingContext = new InitialContext();
+            } catch (NamingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
 
             System.setSecurityManager(new SecurityManager());
 
@@ -41,7 +44,11 @@ public class RMIServer {
 
 
             //Binden des Objekts
-            Naming.rebind("rmi://" + ip + ":1099/RMI", factory);
+            try {
+                initialNamingContext.rebind("rmi://" + ip + ":1099/RMI", factory);
+            } catch (NamingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             System.out.println("Path: rmi://" + ip + ":1099/RMI");
             System.out.println("RMIFactory bound in registry");
             System.out.println("Server ist running");
@@ -49,9 +56,6 @@ public class RMIServer {
         } catch (RemoteException e) {
             System.out.println("RMI Server error: " + e.getMessage());
             e.printStackTrace();
-        } catch (MalformedURLException e) {
-            System.out.println("RMI Server error: " + e.getMessage());
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (UnknownHostException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

@@ -13,13 +13,13 @@ import svm.rmi.abstraction.factory.IRMIControllerFactory;
 import svm.rmi.implementation.rmiController.*;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 
 /**
  * Projectteam : Team C
  * Date: 31.10.12
  */
-public class RMIControllerFactory extends UnicastRemoteObject implements IRMIControllerFactory {
+public class RMIControllerFactory extends PortableRemoteObject implements IRMIControllerFactory {
 
     private static IRMIControllerFactory instance;
 

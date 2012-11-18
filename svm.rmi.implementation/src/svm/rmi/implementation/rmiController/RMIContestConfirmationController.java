@@ -10,14 +10,14 @@ import svm.rmi.abstraction.controller.IRMIContestConfirmationController;
 
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import javax.rmi.PortableRemoteObject;
 import java.util.List;
 
 /**
  * Projectteam : Team C
  * Date: 31.10.12
  */
-public class RMIContestConfirmationController extends UnicastRemoteObject implements IRMIContestConfirmationController {
+public class RMIContestConfirmationController extends PortableRemoteObject implements IRMIContestConfirmationController {
 
     IContestConfirmationController confirmationController;
 
