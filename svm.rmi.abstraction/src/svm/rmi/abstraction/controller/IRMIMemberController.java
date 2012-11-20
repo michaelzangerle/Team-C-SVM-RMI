@@ -66,7 +66,7 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
 
     List<ITransferUserPrivilege> getPrivileges() throws RemoteException, IllegalGetInstanceException;
 
-    void setSport(ITransferSport sport) throws RemoteException;
+    void setSport(ITransferSport sport) throws RemoteException, NotAllowException;
 
-    ITransferSport getSport() throws RemoteException;
+    ITransferSport getSport() throws RemoteException, IllegalGetInstanceException;
 }

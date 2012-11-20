@@ -164,12 +164,12 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     }
 
     @Override
-    public void setSport(ITransferSport sport) throws RemoteException{
+    public void setSport(ITransferSport sport) throws RemoteException, NotAllowException {
        controller.setSport(sport);
     }
 
     @Override
-    public ITransferSport getSport() throws RemoteException{
+    public ITransferSport getSport() throws RemoteException, IllegalGetInstanceException {
       return controller.getSport();
     }
 
