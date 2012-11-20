@@ -4,6 +4,7 @@ import svm.domain.abstraction.exception.DomainAttributeException;
 import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
+import svm.logic.abstraction.transferobjects.ITransferSport;
 import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
@@ -64,4 +65,8 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
     void removePrivilege(ITransferUserPrivilege privilege) throws NotAllowException, DomainParameterCheckException, DomainAttributeException, RemoteException;
 
     List<ITransferUserPrivilege> getPrivileges() throws RemoteException, IllegalGetInstanceException;
+
+    void setSport(ITransferSport sport) throws RemoteException;
+
+    ITransferSport getSport() throws RemoteException;
 }
