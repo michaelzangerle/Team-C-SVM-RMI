@@ -1,18 +1,17 @@
 package svm.rmi.client;
 
+import svm.logic.abstraction.jmsobjects.IMemberMessage;
+import svm.logic.abstraction.jmsobjects.IMessageObserver;
+import svm.logic.abstraction.jmsobjects.ISubTeamMessage;
 import svm.logic.abstraction.transferobjects.ITransferAuth;
-import svm.logic.abstraction.transferobjects.ITransferContest;
-import svm.logic.abstraction.transferobjects.ITransferTeam;
-import svm.rmi.abstraction.controller.IRMIContestController;
 import svm.rmi.abstraction.controller.IRMILoginController;
-import svm.rmi.abstraction.controller.IRMISearchController;
+import svm.rmi.abstraction.controller.IRMIMessageController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
 
 import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
-import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -49,36 +48,19 @@ public class RMIClient {
             ITransferAuth user = lc.getMember();
             lc.abort();
 
+            IRMIMessageController messageController = factory.getMessageController(user);
+            messageController.addObserver(new IMessageObserver() {
+                @Override
+                public void updateMemberMessage(IMemberMessage iMemberMessage) {
+                    System.out.println("NEW MemberMessage: " + iMemberMessage);
+                }
 
-            /* IRMISearchController searchController = factory.getRMISearchController(m);
-                        searchController.start();
-                        for (ITransferMember obj : searchController.getMembers("Georgi", "")) {
-                            System.out.println(obj.getFirstName() + " " + obj.getLastName());
-                        }
-                        searchController.commit();
-                            System.out.println("Login funkt");
-            */
-
-            // 1. contest ausgewählt via searchcontroller
-            // 2. contestconoller init und start
-
-            IRMISearchController searchController = factory.getRMISearchController(user);
-            searchController.start();
-
-            List<ITransferContest> contests = searchController.getContests();
-
-            for (ITransferContest c : contests) {
-                System.out.println(c.getName());
-            }
-
-            IRMIContestController contestController = factory.getRMIContestController(contests.get(0), user);
-            contestController.start();
-            System.out.println(contestController.getTransferContest().getSport());
-            for (ITransferTeam team : contestController.getPossibleTeams()) {
-                System.out.println(team);
-            }
-
-
+                @Override
+                public void updateSubTeamMessage(ISubTeamMessage iSubTeamMessage) {
+                    System.out.println("NEW SubTeamMessage: " + iSubTeamMessage);
+                }
+            });
+            messageController.start();
         } catch (RemoteException e) {
             e.printStackTrace();
             System.out.println("RMI Client Remote Expetion " + e.getMessage());

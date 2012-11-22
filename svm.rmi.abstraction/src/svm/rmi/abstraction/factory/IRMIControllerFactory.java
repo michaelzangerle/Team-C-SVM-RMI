@@ -83,4 +83,6 @@ public interface IRMIControllerFactory extends Remote {
     IRMIMemberController getRMIMemberController(ITransferAuth user) throws RemoteException;
 
     IRMILoginController getRMILoginController() throws RemoteException;
+
+    IRMIMessageController getMessageController(ITransferAuth user) throws RemoteException;
 }

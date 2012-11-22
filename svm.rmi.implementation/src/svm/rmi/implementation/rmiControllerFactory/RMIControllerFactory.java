@@ -149,5 +149,10 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
         return new RMILoginController(LogicFacade.getLoginController());
     }
 
+    @Override
+    public IRMIMessageController getMessageController(ITransferAuth user) throws RemoteException {
+        return new RMIMessageController(LogicFacade.getMessageController(user));
+    }
+
 
 }
