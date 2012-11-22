@@ -7,6 +7,7 @@ import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferLocation;
 import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferSport;
 import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
@@ -161,4 +162,15 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     public void abort() throws ExistingTransactionException, NoSessionFoundException, NoTransactionException, RemoteException {
         controller.abort();
     }
+
+    @Override
+    public void setSport(ITransferSport sport) throws RemoteException, NotAllowException {
+       controller.setSport(sport);
+    }
+
+    @Override
+    public ITransferSport getSport() throws RemoteException, IllegalGetInstanceException {
+      return controller.getSport();
+    }
+
 }
