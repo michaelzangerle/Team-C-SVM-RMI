@@ -8,9 +8,9 @@ import svm.logic.abstraction.transferobjects.*;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMISearchController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
@@ -72,12 +72,22 @@ public class RMISearchController extends UnicastRemoteObject implements IRMISear
 
     @Override
     public List<ITransferUserPrivilege> getUserPrivileges() throws NotAllowException, IllegalGetInstanceException, NoSessionFoundException, RemoteException {
-        return  controller.getUserPrivileges();
+        return controller.getUserPrivileges();
     }
 
     @Override
-    public List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException,RemoteException {
+    public List<ITransferSport> getSports() throws IllegalGetInstanceException, NoSessionFoundException, NotAllowException, RemoteException {
         return controller.getSports();
+    }
+
+    @Override
+    public ITransferMember getMemberByUID(int uid) throws RemoteException, NoSessionFoundException, IllegalGetInstanceException {
+        return controller.getMemberByUID(uid);
+    }
+
+    @Override
+    public ITransferSubTeam getSubTeam(int uid) throws RemoteException, NoSessionFoundException, IllegalGetInstanceException {
+        return controller.getSubTeam(uid);
     }
 
     @Override

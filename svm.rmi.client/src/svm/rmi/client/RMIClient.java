@@ -34,7 +34,7 @@ public class RMIClient {
                 ip = InetAddress.getLocalHost().getHostAddress();
             }
 
-            //Lookup Objekt    Holle ATM Fabrik
+            //Lookup Objekt Holle ATM Fabrik
             IRMIControllerFactory factory = (IRMIControllerFactory) Naming.lookup("rmi://" + ip + ":1099/RMI");
 
             //Starte die Testmethoden
