@@ -5,10 +5,7 @@ import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.controller.IMemberController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
-import svm.logic.abstraction.transferobjects.ITransferLocation;
-import svm.logic.abstraction.transferobjects.ITransferMember;
-import svm.logic.abstraction.transferobjects.ITransferSport;
-import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
+import svm.logic.abstraction.transferobjects.*;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
@@ -172,5 +169,11 @@ public class RMIMemberController extends UnicastRemoteObject implements IRMIMemb
     public ITransferSport getSport() throws RemoteException, IllegalGetInstanceException {
       return controller.getSport();
     }
+
+    @Override
+   public void addMemberToTeam(ITransferTeam team) throws RemoteException, NotSupportedException, NoSessionFoundException, InstantiationException, IllegalAccessException {
+
+        this.controller.addMemberToTeam(team);
+   }
 
 }

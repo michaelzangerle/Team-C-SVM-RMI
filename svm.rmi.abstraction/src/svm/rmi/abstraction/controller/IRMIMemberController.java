@@ -5,6 +5,7 @@ import svm.domain.abstraction.exception.DomainParameterCheckException;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.transferobjects.ITransferSport;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.logic.abstraction.transferobjects.ITransferUserPrivilege;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
@@ -69,4 +70,6 @@ public interface IRMIMemberController extends Remote, Serializable, IRMIControll
     void setSport(ITransferSport sport) throws RemoteException, NotAllowException;
 
     ITransferSport getSport() throws RemoteException, IllegalGetInstanceException;
+
+    void addMemberToTeam(ITransferTeam team) throws RemoteException, NotSupportedException, NoSessionFoundException, InstantiationException, IllegalAccessException;
 }
