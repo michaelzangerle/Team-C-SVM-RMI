@@ -9,6 +9,7 @@ import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMIMessageController;
 
+import javax.jms.JMSException;
 import java.rmi.RemoteException;
 
 /**
@@ -47,5 +48,10 @@ public class RMIMessageController implements IRMIMessageController {
     @Override
     public void removeObserver(IMessageObserver iMessageObserver) throws RemoteException {
         controller.removeObserver(iMessageObserver);
+    }
+
+    @Override
+    public void updateMessages() throws JMSException, RemoteException {
+        controller.updateMessages();
     }
 }

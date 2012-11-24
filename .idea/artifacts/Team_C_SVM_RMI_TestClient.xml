@@ -10,6 +10,10 @@
       <element id="module-output" name="svm.rmi.client" />
       <element id="module-output" name="svm.rmi.abstraction" />
       <element id="file-copy" path="$PROJECT_DIR$/svm.rmi.client/src/client.policy" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.client/lib/fscontext.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.client/lib/imq.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.client/lib/javax.jms.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.rmi.client/lib/jms.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
