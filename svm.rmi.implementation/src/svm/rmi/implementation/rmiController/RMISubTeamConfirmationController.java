@@ -3,16 +3,14 @@ package svm.rmi.implementation.rmiController;
 import svm.logic.abstraction.controller.ISubTeamConfirmationController;
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
 import svm.logic.abstraction.transferobjects.ITransferMember;
-import svm.logic.abstraction.transferobjects.ITransferSubTeamHasMember;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMISubTeamConfirmationController;
 
-import svm.persistence.abstraction.exceptions.NotSupportedException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -27,15 +25,9 @@ public class RMISubTeamConfirmationController extends UnicastRemoteObject implem
         this.controller = controller;
     }
 
-
     @Override
-    public List<ITransferSubTeamHasMember> getSubTeamsOfMember() throws IllegalGetInstanceException, RemoteException {
-        return controller.getSubTeamsOfMember();
-    }
-
-    @Override
-    public void setConfirmationForSubTeam(ITransferSubTeamHasMember iTransferSubTeamHasMember, boolean b, String s) throws RemoteException {
-        controller.setConfirmationForSubTeam(iTransferSubTeamHasMember, b, s);
+    public void setConfirmation(boolean confirm, String comment) {
+        controller.setConfirmation(confirm, comment);
     }
 
     @Override
