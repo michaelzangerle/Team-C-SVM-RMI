@@ -1,16 +1,19 @@
 package svm.rmi.client;
 
 import svm.logic.abstraction.exception.IllegalGetInstanceException;
+import svm.logic.abstraction.exception.NotAllowException;
 import svm.logic.abstraction.jmsobjects.IMemberMessage;
 import svm.logic.abstraction.jmsobjects.IMessageObserver;
 import svm.logic.abstraction.jmsobjects.ISubTeamMessage;
 import svm.logic.abstraction.transferobjects.ITransferAuth;
 import svm.logic.abstraction.transferobjects.ITransferMember;
+import svm.logic.abstraction.transferobjects.ITransferTeam;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.rmi.abstraction.controller.IRMILoginController;
+import svm.rmi.abstraction.controller.IRMIMemberController;
 import svm.rmi.abstraction.controller.IRMIMessageController;
 import svm.rmi.abstraction.controller.IRMISearchController;
 import svm.rmi.abstraction.factory.IRMIControllerFactory;
@@ -19,6 +22,7 @@ import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  * Projectteam : Team C
@@ -59,41 +63,10 @@ public class RMIClient {
 
             searchController = factory.getRMISearchController(user);
 
-            IRMIMessageController messageController = factory.getRMIMessageController(user);
-            messageController.addObserver(new IMessageObserver() {
-                @Override
-                public void updateMemberMessage(IMemberMessage iMemberMessage) {
+            checkMessage(factory,user);
 
-                    try {
-                        searchController.start();
-                        ITransferMember member = searchController.getMemberByUID(iMemberMessage.getMember());
-                        searchController.commit();
-                        System.out.println("NEW MemberMessage: " + iMemberMessage + " " + member.getFirstName());
-                    } catch (RemoteException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (NoSessionFoundException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (IllegalGetInstanceException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (NoTransactionException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (ExistingTransactionException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (NotSupportedException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    }
-                }
+           // checkAddMemberToTeam(factory,user);
 
-                @Override
-                public void updateSubTeamMessage(ISubTeamMessage iSubTeamMessage) {
-                    System.out.println("NEW SubTeamMessage: " + iSubTeamMessage);
-                }
-            });
-            messageController.start();
         } catch (RemoteException e) {
             e.printStackTrace();
             System.out.println("RMI Client Remote Expetion " + e.getMessage());
@@ -101,5 +74,65 @@ public class RMIClient {
             System.out.println("RMI Client errors: " + e.getMessage());
             e.printStackTrace();
         }
+
+
     }
+
+    private static void checkAddMemberToTeam(IRMIControllerFactory factory, ITransferAuth user) throws NotSupportedException, IllegalGetInstanceException, NoSessionFoundException, IllegalAccessException, InstantiationException, RemoteException, NotAllowException, ExistingTransactionException, NoTransactionException {
+
+        searchController.start();
+        List<ITransferMember> memberList= searchController.getMembers("Michael","Zangerle");
+        ITransferMember tm=memberList.get(0);
+        List<ITransferTeam> teams=searchController.getTeams();
+        ITransferTeam team=teams.get(0);
+        searchController.commit();
+
+        IRMIMemberController memberController=factory.getRMIMemberController(tm, user);
+        memberController.start();
+        memberController.addMemberToTeam(team);
+        memberController.commit();
+    }
+
+    private static void checkMessage(IRMIControllerFactory factory, ITransferAuth user) throws RemoteException, NotSupportedException, IllegalGetInstanceException, NoSessionFoundException, IllegalAccessException, InstantiationException {
+
+
+        IRMIMessageController messageController = factory.getRMIMessageController(user);
+        messageController.addObserver(new IMessageObserver() {
+            @Override
+            public void updateMemberMessage(IMemberMessage iMemberMessage) {
+
+                try {
+                    searchController.start();
+                    ITransferMember member = searchController.getMemberByUID(iMemberMessage.getMember());
+                    searchController.commit();
+                    System.out.println("NEW MemberMessage: " + iMemberMessage + " " + member.getFirstName());
+                } catch (RemoteException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (NoSessionFoundException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (IllegalGetInstanceException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (NoTransactionException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (ExistingTransactionException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (NotSupportedException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (InstantiationException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+            }
+
+            @Override
+            public void updateSubTeamMessage(ISubTeamMessage iSubTeamMessage) {
+                System.out.println("NEW SubTeamMessage: " + iSubTeamMessage);
+            }
+        });
+        messageController.start();
+
+
+    }
+
 }
