@@ -94,7 +94,6 @@ public class RMIClient {
                 }
             });
             messageController.start();
-            // messageController.updateMessages();
         } catch (RemoteException e) {
             e.printStackTrace();
             System.out.println("RMI Client Remote Expetion " + e.getMessage());
