@@ -11,6 +11,7 @@
     <orderEntry type="library" name="svm.exceptions" level="project" />
     <orderEntry type="library" name="svm.logic.abstraction" level="project" />
     <orderEntry type="library" name="JMS" level="project" />
+    <orderEntry type="library" name="svm.logic.abstraction1" level="project" />
   </component>
 </module>
 
