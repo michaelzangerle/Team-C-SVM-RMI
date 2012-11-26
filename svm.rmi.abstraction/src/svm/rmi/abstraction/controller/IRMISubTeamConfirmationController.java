@@ -11,5 +11,5 @@ public interface IRMISubTeamConfirmationController extends Remote, Serializable,
 
     svm.logic.abstraction.transferobjects.ITransferMember getMember() throws java.rmi.RemoteException;
 
-    void setConfirmation(boolean confirm, String comment);
+    void setConfirmation(boolean confirm, String comment)throws java.rmi.RemoteException;
 }

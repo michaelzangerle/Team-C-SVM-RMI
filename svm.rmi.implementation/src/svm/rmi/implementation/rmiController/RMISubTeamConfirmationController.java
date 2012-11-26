@@ -26,7 +26,7 @@ public class RMISubTeamConfirmationController extends UnicastRemoteObject implem
     }
 
     @Override
-    public void setConfirmation(boolean confirm, String comment) {
+    public void setConfirmation(boolean confirm, String comment)throws java.rmi.RemoteException {
         controller.setConfirmation(confirm, comment);
     }
 

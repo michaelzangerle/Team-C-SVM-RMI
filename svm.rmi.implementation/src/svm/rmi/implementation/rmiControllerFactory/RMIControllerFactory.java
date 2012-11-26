@@ -79,8 +79,8 @@ public class RMIControllerFactory extends UnicastRemoteObject implements IRMICon
 
 
     @Override
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException {
-        return new RMISubTeamConfirmationController(LogicFacade.getSubTeamConfirmationController(user, member));
+    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferAuth user,ITransferMember member, ITransferSubTeam subteam) throws RemoteException {
+        return new RMISubTeamConfirmationController(LogicFacade.getSubTeamConfirmationController(user, member,subteam));
     }
 
     @Override

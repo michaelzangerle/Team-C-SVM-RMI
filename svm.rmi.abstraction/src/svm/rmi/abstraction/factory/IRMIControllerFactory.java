@@ -1,9 +1,6 @@
 package svm.rmi.abstraction.factory;
 
-import svm.logic.abstraction.transferobjects.ITransferAuth;
-import svm.logic.abstraction.transferobjects.ITransferContest;
-import svm.logic.abstraction.transferobjects.ITransferMember;
-import svm.logic.abstraction.transferobjects.ITransferTeam;
+import svm.logic.abstraction.transferobjects.*;
 import svm.rmi.abstraction.controller.*;
 
 import java.rmi.Remote;
@@ -47,14 +44,6 @@ public interface IRMIControllerFactory extends Remote {
     public IRMIContestConfirmationController getRMIContestConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException;
 
     /**
-     * Sub Team Confirmation
-     *
-     * @return IRMISubTeamConfirmationController
-     * @throws RemoteException
-     */
-    public IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferMember member, ITransferAuth user) throws RemoteException;
-
-    /**
      * Handle SubTeams
      *
      * @return IRMISubTeamController
@@ -87,4 +76,6 @@ public interface IRMIControllerFactory extends Remote {
     IRMIMessageController getRMIMessageController(ITransferAuth user) throws RemoteException;
 
     void generateTestMember(ITransferAuth user) throws RemoteException;
+
+    IRMISubTeamConfirmationController getRMISubTeamConfirmationController(ITransferAuth user, ITransferMember member, ITransferSubTeam subteam) throws RemoteException;
 }
